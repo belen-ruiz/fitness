@@ -1,10 +1,13 @@
+import { Router } from "./hooks/Router"
+import { BrowserRouter } from "react-router-dom"
+
 
 
 function App() {
   return (
-    <div>
-      app
-    </div>
+    <BrowserRouter>
+      <Router /> 
+    </BrowserRouter>
   );
 }
 
