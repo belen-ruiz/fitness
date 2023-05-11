@@ -39,17 +39,24 @@ export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
     }
   }
 
+  const ContainerXl = {
+    alignItems: "center",
+    justifyContent: "center"
+  }
+
+  const Subtitle = {
+    marinBottom: "1rem"
+  }
+
+
   return (
-    <Stack 
-      alignItems="center"
-      justifyContent="center"
-      >
+    <Stack sx={ContainerXl}>
         <Box position="relative" maxWidth="md" sx={{ mt: 20 }}>
-          <Typography>Los mejores ejercicios</Typography>
+          <Typography sx={Subtitle} >Los mejores ejercicios</Typography>
           <TextField
                 id="search"
                 type="search"
-                label="Search"
+                label="You can filter exercises by name, target muscle or equipment"
                 value={search}
                 onChange={handleChange}
                 sx={{ width: 600 }}

@@ -30,11 +30,10 @@ export const ExerciseList = ({bodyPart, exercises, setExercises }) => {
       else {
         exData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOp) 
       }
-
       setExercises(exData)
+      console.log(exData)
     }
     fetchExData()
-    
   }, [bodyPart])
   
 
@@ -46,6 +45,7 @@ export const ExerciseList = ({bodyPart, exercises, setExercises }) => {
           {currentEx.map((exercise) => (
           <ExerciseCard key={exercise.id} exercise={exercise}/>))}
       </Stack>
+      
       <Stack>
           {exercises.length > 9  && 
           <Pagination 
