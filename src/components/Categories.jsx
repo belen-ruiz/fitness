@@ -10,7 +10,8 @@ export const Categories = ({ item, bodyPart, setBodyPart }) => {
         borderTop: bodyPart === item ? "4px solid #ff2625" : "",
         cursor: "pointer",
         gap: "1rem",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        "&:hover":{borderTop: "4px solid #ff2625"}
     }
     
     const TypoSx = {
