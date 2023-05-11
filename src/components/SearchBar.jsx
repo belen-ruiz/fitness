@@ -1,8 +1,9 @@
-import { Container, TextField } from "@mui/material";
+import { Stack, Box, Container, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import {exerciseOp, fetchData} from "../utils/fetchData";
 import { HorizontalScrollBar } from "./HorizontalScrollBar";
+import { Typography } from "@mui/material";
 
 export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
@@ -11,7 +12,7 @@ export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
   useEffect(() => {
     const fetchBodyParts = async () => {
         const bodyPartsDb = await fetchData("https://exercisedb.p.rapidapi.com/exercises/bodyPartList" ,exerciseOp)
-        console.log(bodyPartsDb)
+        //console.log(bodyPartsDb)
         setBodyParts(["all", ...bodyPartsDb])
     }
     fetchBodyParts()
@@ -24,25 +25,28 @@ export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const handleSearch = async () => {
     if (search){
-        const exercises = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseOp)
+        const allExercises = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseOp)
 
-        const searched = exercises.filter((ex) => 
+        const searched = allExercises.filter((ex) => 
         ex.name.toLowerCase().includes(search)
         || ex.target.toLowerCase().includes(search)
         || ex.equipment.toLowerCase().includes(search)
         || ex.bodyPart.toLowerCase().includes(search)
         )
-
+        //window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' })
         setSearch("")
         setExercises(searched)
     }
   }
 
   return (
-    <>
-        <Container maxWidth="md" sx={{ mt: 20 }}>
-            <h1>Los mejores ejercicios</h1>
-            <TextField
+    <Stack 
+      alignItems="center"
+      justifyContent="center"
+      >
+        <Box position="relative" maxWidth="md" sx={{ mt: 20 }}>
+          <Typography>Los mejores ejercicios</Typography>
+          <TextField
                 id="search"
                 type="search"
                 label="Search"
@@ -53,10 +57,16 @@ export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
             <button onClick={handleSearch}>
                 Buscar <SearchIcon />
             </button>
-        </Container>
-        <Container>
-            <HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-        </Container>
-    </>
+        </Box>
+
+        <Box 
+          sx={{ position: "relative", width:"100%", p: "20px" }}>
+            <HorizontalScrollBar 
+            data={bodyParts} 
+            bodyPart={bodyPart} 
+            setBodyPart={setBodyPart}
+            bodyParts />
+        </Box>
+    </Stack>
   );
 }

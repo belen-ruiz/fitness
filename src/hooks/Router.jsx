@@ -1,4 +1,5 @@
 import { useRoutes } from 'react-router-dom'
+import { ExerciseDetail } from '../components/ExerciseDetail'
 import { Error404 } from '../pages/Error404'
 import { Home } from '../pages/Home'
 
@@ -18,6 +19,11 @@ const allRoutes = () => {
             path:"/home",
             exact: true,
             element: <Home />
+        },
+        {
+            path:"/exercise/:id",
+            exact: false,
+            element: <ExerciseDetail />
         },
         {
             path:"/*",
