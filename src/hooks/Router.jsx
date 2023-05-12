@@ -21,9 +21,14 @@ const allRoutes = () => {
             element: <Home />
         },
         {
-            path:"/exercise/:id",
+            path:"/categoria/:id",
             exact: false,
             element: <ExerciseDetail />
+        },
+        {
+            path:"/subcategoria/:id",
+            exact: false,
+            //element: < />
         },
         {
             path:"/*",

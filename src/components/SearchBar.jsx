@@ -5,19 +5,9 @@ import {exerciseOp, fetchData} from "../utils/fetchData";
 import { HorizontalScrollBar } from "./HorizontalScrollBar";
 import { Typography } from "@mui/material";
 
-export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
+export const SearchBar = ({ category, setCatList, setCategory }) => {
   const [search, setSearch] = useState("");
-  const [bodyParts, setBodyParts] = useState([])
-
-  useEffect(() => {
-    const fetchBodyParts = async () => {
-        const bodyPartsDb = await fetchData("https://exercisedb.p.rapidapi.com/exercises/bodyPartList" ,exerciseOp)
-        //console.log(bodyPartsDb)
-        setBodyParts(["all", ...bodyPartsDb])
-    }
-    fetchBodyParts()
-  }, [])
-  
+  const [categories, setCategories] = useState([])  
 
   const handleChange = (e) => {
     setSearch(e.target.value.toLowerCase());
@@ -25,17 +15,17 @@ export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const handleSearch = async () => {
     if (search){
-        const allExercises = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseOp)
+        const catData = await fetchData("https://api.mercadolibre.com/sites/MLA/categories/`${id}`", exerciseOp)
+        console.log(catData)
 
-        const searched = allExercises.filter((ex) => 
-        ex.name.toLowerCase().includes(search)
-        || ex.target.toLowerCase().includes(search)
-        || ex.equipment.toLowerCase().includes(search)
-        || ex.bodyPart.toLowerCase().includes(search)
+        const searched = catData.filter((cat) => 
+        cat.name.toLowerCase().includes(search)
+        // || ex.target.toLowerCase().includes(search)
         )
-        //window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' })
+        console.log(searched)
         setSearch("")
-        setExercises(searched)
+        setCategories(searched)
+        console.log(categories)
     }
   }
 
@@ -66,14 +56,14 @@ export const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
             </button>
         </Box>
 
-        <Box 
+        {/* <Box 
           sx={{ position: "relative", width:"100%", p: "20px" }}>
             <HorizontalScrollBar 
             data={bodyParts} 
             bodyPart={bodyPart} 
             setBodyPart={setBodyPart}
             bodyParts />
-        </Box>
+        </Box> */}
     </Stack>
   );
 }

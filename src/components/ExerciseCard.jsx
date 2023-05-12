@@ -3,7 +3,8 @@ import { Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ButtonInfo } from  "./atoms/ButtonInfo";
 
-export const ExerciseCard = ({ exercise }) => {
+export const ExerciseCard = ({ categoria }) => {
+
 
   const StackSx = {
     padding:"2.5rem 1.5rem",
@@ -20,18 +21,9 @@ export const ExerciseCard = ({ exercise }) => {
     color:"#222222"
   }
   return (
-      <Link to={`/exercise/${exercise.id}`} style={{textDecoration: "none"}}>
+      <Link to={`/categoria/${categoria.id}`} style={{textDecoration: "none"}}>
         <Stack sx={StackSx}>
-          <div>
-            <img src={exercise.gifUrl} />
-          </div>
-
-          <Stack direction="row">
-            <ButtonInfo>{exercise.bodyPart}</ButtonInfo>
-            <ButtonInfo>{exercise.target}</ButtonInfo>
-          </Stack>
-
-          <Typography sx={TypoSx}>{exercise.name}</Typography>
+          <Typography sx={TypoSx}>{categoria.name}</Typography>
         </Stack>
       </Link>
   )
