@@ -1,8 +1,10 @@
+
+
 import React from 'react'
 import { HorizontalScrollBar } from './Scroll'
 import { useDataContext } from "../../context/DataProvider"
 
-export const ContainerList = () => {
+export const ScrollContainer = () => {
 
 const { trendingTv, trendingMovies} = useDataContext()
 
@@ -13,13 +15,14 @@ console.log(trendingMovies)
     <div className='mm-1'>
       <div>
         <div className="titulo">Trending Tv Shows</div>
-        <HorizontalScrollBar data={trendingTv}/>
+        { trendingTv && <HorizontalScrollBar data={trendingTv}/>}
       </div>
 
       <div>
         <div className="titulo">Trending Movies</div>
-        <HorizontalScrollBar data={trendingMovies}/>
+        { trendingMovies &&<HorizontalScrollBar data={trendingMovies}/>}
       </div>
     </div>
   )
 }
+

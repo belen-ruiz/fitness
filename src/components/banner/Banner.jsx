@@ -1,16 +1,16 @@
 import { InfoOutlined, LiveTvRounded, PlayCircleOutline } from '@mui/icons-material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ButtonInfo } from "../atoms/ButtonInfo"
 
 export const Banner = () => {
   return (
-    <div className='container-banner'>
+    <div className='container-banner mm-1'>
         <div className='banner-info flex-column'>
-            <div className='container-id flex-center'>
+            <Link to={"/series"}className='container-id flex-center'>
                 <div className='tv-icon'><LiveTvRounded /></div>
                 <div className='id-type'>SERIE</div>
-            </div>
-
+            </Link> 
             <div className='title-m'>
                 QUEEN EYE <span>more than a makeover</span>
             </div>
@@ -20,7 +20,7 @@ export const Banner = () => {
             <div className='description'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut cupiditate porro blanditiis quis modi nihil ad molestiae qui accusamus velit mollitia minima eveniet quos asperiores, aspernatur suscipit consectetur enim placeat.
             </div>
-            <div className='buttons'>
+            <div className='btn-container flex-center'>
                 <ButtonInfo>
                     <span><PlayCircleOutline/></span>
                     REPRODUCIR

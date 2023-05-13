@@ -10,7 +10,6 @@ export const Series = () => {
 
   console.log(tvshows)
 
-
   return (
     <div>
       <NavBar />

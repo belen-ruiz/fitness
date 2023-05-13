@@ -20,12 +20,12 @@ const allRoutes = () => {
             element: <Homee />
         },
         {
-            path:"explore/series",
+            path:"/series",
             exact: true,
             element: <Series />
         },
         {
-            path:"explore/peliculas",
+            path:"/peliculas",
             exact: true,
             element: <Movies />
         },

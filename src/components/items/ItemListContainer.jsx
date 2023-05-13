@@ -5,18 +5,17 @@ import { ItemList } from "./ItemList";
 import { useDataContext } from "../../context/DataProvider"
 //1
 //logica y mapa de la lista
-export const ItemListContainer = ({tvshows}) => {
- //const { movies } = useDataContext()
+export const ItemListContainer = ({tvshows, movies}) => {
     return (
-        <>
-            {/* {movies && movies.map((data)=>(
-                <ItemList key={data.id} data={data} />
-            ))} */}
+        <div className="mm-1">
+            {movies && movies.map((movie)=>(
+                <ItemList key={movie.id} data={movie} />
+            ))}
  
             {tvshows && tvshows.map((tvshow)=>(
                 <ItemList key={tvshow.id} data={tvshow} />
             ))}
-        </>
+        </div>
     );
 };
 

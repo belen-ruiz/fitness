@@ -17,7 +17,7 @@
     --leyend: 0.5rem;
 
     /* margin y padding */
-    --p-m: 1rem 2.5rem;
+    --p-mm: 1rem 2.5rem;
 
     --gap-1: 2rem; 
     --gap-2: 1rem; 
@@ -51,6 +51,9 @@ body{
     flex-direction: column;
 }
 
+.mm-1{
+    padding: var(--p-mm);
+}
 
 
 .title-navbar{
@@ -61,7 +64,7 @@ body{
 }
 
 a.active .title-navbar {
-    color: var(--color-b);
+    color: var(--color-w);
 }
 
 .title-navbar:hover{
@@ -78,8 +81,7 @@ a.active .title-navbar {
 }
 
 .container-navbar{
-    background-color: var(--bg-c);
-    padding: var(--p-m);
+    background-color: var(--color-b);
     width: 100vw;
     height: auto;
     position: sticky;
@@ -99,9 +101,16 @@ a.active .title-navbar {
     font-size: var(--title-xl);
 }
 
-.container-banner{
-    padding: var(--p-m);
+.container-footer{
+    gap: var(--gap-1);
 }
+
+.container-moreinfo{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr) ;
+    gap: var(--gap-2);
+}
+
 
 .banner-info{
     width: 50%;
@@ -129,26 +138,18 @@ a.active .title-navbar {
 .description{
     font-size: var(--text);
 }
-.container-footer{
-    padding: var(--p-m);
-    gap: var(--gap-1);
-}
+
 
 
 .social-media > svg{
     margin-right: var(--gap-3);
-    font-size: var(--title-m)
+    font-size: var(--title-m);
+    cursor: pointer;
 }
 
 .title-footer{
     font-size: var(--text);  
     text-transform: capitalize;
-}
-
-.container-moreinfo{
-    display: grid;
-    grid-template-columns:repeat(3, 1fr) ;
-    gap: var(--gap-2);
 }
 
 .legal-footer{
@@ -157,3 +158,18 @@ a.active .title-navbar {
 
 
 
+/* buttons */
+.btn-banner{
+    margin: 0.5rem 1rem 0 0;
+    padding: var(--gap-3);
+    gap: var(--gap-3);
+    border-radius: 10px;
+    font-size: var(--text);
+    width: fit-content;
+    cursor: pointer;
+    
+}
+.btn-banner:hover{
+    background-color: var(--color-hover);
+    color: var(--color-b);
+}
