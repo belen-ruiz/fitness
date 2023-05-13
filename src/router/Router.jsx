@@ -1,9 +1,6 @@
 import { useRoutes } from 'react-router-dom'
-import { ExerciseDetail } from '../components/ExerciseDetail'
 import { Error404 } from '../pages/Error404'
-import { Home } from '../pages/Home'
-
-
+import { Homee } from '../pages/Homee'
 
 // se importa en la app
 
@@ -13,22 +10,12 @@ const allRoutes = () => {
         {
             path:"/",
             exact: true,
-            element: <Home />
+            element: <Homee />
         },
         {
             path:"/home",
             exact: true,
-            element: <Home />
-        },
-        {
-            path:"/categoria/:id",
-            exact: false,
-            element: <ExerciseDetail />
-        },
-        {
-            path:"/subcategoria/:id",
-            exact: false,
-            //element: < />
+            element: <Homee />
         },
         {
             path:"/*",

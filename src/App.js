@@ -1,8 +1,6 @@
-import { Router } from "./hooks/Router";
+import { Router } from "./router/Router";
 import { BrowserRouter } from "react-router-dom";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Header } from "./components/header/Header";
+import "./app.css"
 
 
 function App() {
