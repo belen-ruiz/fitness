@@ -8,8 +8,8 @@ export const ScrollContainer = () => {
 
 const { trendingTv, trendingMovies} = useDataContext()
 
-console.log(trendingTv)
-console.log(trendingMovies)
+// console.log(trendingTv)
+// console.log(trendingMovies) ok
 
   return (
     <div className='mm-1'>

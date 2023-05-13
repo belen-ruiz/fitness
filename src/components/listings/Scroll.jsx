@@ -16,13 +16,15 @@ const RightArrow = () => {
     return <button onClick={() => scrollNext()}> Delante </button>;
 };
 
-export const HorizontalScrollBar = ({ data, trendingTv, trendingMovies }) => {
+export const HorizontalScrollBar = ({ data }) => {
+
+    console.log(data)
 
     return (
         <ScrollMenu RightArrow={RightArrow} LetfArrow={LetfArrow}>
             {data.map((tvshow) => (
                 <Box key={tvshow.id || tvshow}>
-                    {trendingTv && <ItemInfo data={tvshow}/>}
+                    {data && <ItemInfo data={tvshow}/>}
                 </Box>
             )
             )}
