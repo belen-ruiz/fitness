@@ -1,6 +1,8 @@
 import { useRoutes } from 'react-router-dom'
 import { Error404 } from '../pages/Error404'
 import { Homee } from '../pages/Homee'
+import { Movies } from '../pages/Movies'
+import { Series } from '../pages/Series'
 
 // se importa en la app
 
@@ -13,9 +15,19 @@ const allRoutes = () => {
             element: <Homee />
         },
         {
-            path:"/home",
+            path:"/inicio",
             exact: true,
             element: <Homee />
+        },
+        {
+            path:"/series",
+            exact: true,
+            element: <Series />
+        },
+        {
+            path:"/peliculas",
+            exact: true,
+            element: <Movies />
         },
         {
             path:"/*",

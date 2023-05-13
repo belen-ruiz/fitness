@@ -1,16 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { pages } from "../constantes/pages"
 
-const pages = ["inicio", "series", "peliculas", "populares"];
 
 export const Pages = () => {
   return (
     <div className='container-pages'>
       {pages && pages.map((page) => 
-      (<Link to={`/${page}`} key={page}>
+      (<NavLink 
+        to={`/${page}`} 
+        key={page} 
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
           <h5 className='title-navbar'>{page}</h5>
-      </Link>
-    ))}
+      </NavLink>
+      ))}
     </div>
   )
 }

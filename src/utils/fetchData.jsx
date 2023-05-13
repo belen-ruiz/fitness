@@ -25,11 +25,10 @@
 const exerciseOp = {
   method: 'GET',
   headers: {
-    // 'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-    // 'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+    "Authorization": "Bearer c17a380a966eb856907e4b64bd5374a",
+    "Content-Type": "application/json;charset=utf-8"
   }
 };
-
 
 const fetchData = async (url, options) => {
   const response = await fetch(url, options)
