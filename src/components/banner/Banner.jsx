@@ -5,8 +5,8 @@ import { ButtonInfo } from "../atoms/ButtonInfo"
 export const Banner = () => {
   return (
     <div className='container-banner'>
-        <div className='banner-info'>
-            <div className='container-id'>
+        <div className='banner-info flex-column'>
+            <div className='container-id flex-center'>
                 <div className='tv-icon'><LiveTvRounded /></div>
                 <div className='id-type'>SERIE</div>
             </div>

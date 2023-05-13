@@ -8,6 +8,7 @@
 }
 
 :root{
+    /* textos */
     --title-xl: 3rem;
     --title-m: 1.5rem;
     --title-sm: 1rem;
@@ -15,32 +16,56 @@
     --text: 0.7rem;
     --leyend: 0.5rem;
 
+    /* margin y padding */
     --p-m: 1rem 2.5rem;
 
-    --bg-c: rgb(21, 21, 21);
+    --gap-1: 2rem; 
+    --gap-2: 1rem; 
+    --gap-3: 0.5rem; 
+    
+    /* color */
+    --color-w:rgb(245, 245, 245);
+    --color-b:rgb(21, 21, 21);
+    --color-primary: rgb(170, 39, 39);
+    --color-secondary: rgb(200, 200, 200);;
+    --color-hover: rgb(130, 130, 130);
     
 }
+    
+
 :link{
     text-decoration: none;
 }
 
 body{
-    background-color: var(--bg-c);
+    background-color: var(--color-b);
 }
 
+.flex-center{
+    display: flex;
+    align-items: center;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 .title-navbar{
-    color: rgb(200, 200, 200);
+    color: var(--color-secondary);
     font-size: var(--text);  
     text-transform: capitalize;
     font-weight: lighter;
 }
 
 a.active .title-navbar {
-    color: rgb(245, 245, 245);
+    color: var(--color-b);
 }
 
 .title-navbar:hover{
-    color: rgb(130, 130, 130);
+    color: var(--color-hover);
 }
 
 .title-sm{
@@ -48,35 +73,29 @@ a.active .title-navbar {
 }
 
 .logo{
-    color: brown;
+    color: var(--color-primary);
     font-size: var(--title-m);
 }
 
 .container-navbar{
-    position: sticky;
-    top:0;
     background-color: var(--bg-c);
+    padding: var(--p-m);
     width: 100vw;
     height: auto;
-    padding: var(--p-m);
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+    position: sticky;
+    top:0;
+    gap: var(--gap-1);
 }
 
 .container-pages{
-    display: flex;
     flex-grow: 2;
-    align-items: center;
-    gap: 1rem;
+    gap: var(--gap-2);
 }
 
 .container-dashboard{
-    display: flex;
     flex-grow: 1;
-    align-items: center;
     justify-content: end;
-    gap: 0.5rem;
+    gap: var(--gap-3);
     font-size: var(--title-xl);
 }
 
@@ -86,18 +105,11 @@ a.active .title-navbar {
 
 .banner-info{
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.container-id{
-    display: flex;
-    align-items: center;
+    gap: var(--gap-3); 
 }
 
 .id-type{
-    padding-left: 0.5rem;
+    padding-left: var(--gap-3);
     font-size: var(--subtitle);
 }
 
@@ -119,14 +131,12 @@ a.active .title-navbar {
 }
 .container-footer{
     padding: var(--p-m);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    gap: var(--gap-1);
 }
 
 
 .social-media > svg{
-    margin-right: 0.5rem;
+    margin-right: var(--gap-3);
     font-size: var(--title-m)
 }
 
@@ -138,7 +148,7 @@ a.active .title-navbar {
 .container-moreinfo{
     display: grid;
     grid-template-columns:repeat(3, 1fr) ;
-    gap: 1rem;
+    gap: var(--gap-2);
 }
 
 .legal-footer{

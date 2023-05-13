@@ -5,7 +5,7 @@ import { pages } from "../constantes/pages"
 
 export const Pages = () => {
   return (
-    <div className='container-pages'>
+    <div className='container-pages flex-center'>
       {pages && pages.map((page) => 
       (<NavLink 
         to={`/explore/${page}`} 

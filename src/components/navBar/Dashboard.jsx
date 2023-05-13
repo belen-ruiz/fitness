@@ -37,7 +37,7 @@ const Profile = () => {
 
 export const Dashboard = () => {
   return (
-    <div className='container-dashboard'>
+    <div className='container-dashboard flex-center'>
         <Search />
         <Notifications />
         <Profile />
