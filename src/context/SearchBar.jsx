@@ -5,47 +5,16 @@ import { Results } from '../pages/Results';
 import { useSearchParams } from "react-router-dom";
 import { ItemListContainer } from '../components/items/ItemListContainer';
 import { useContext, useState, useEffect, createContext } from "react";
-import { useSearchContext } from './Search';
+import { useSearchContext } from './SearchProvider';
 
 
 export const SearchBar = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const [searchParams, setSearchParams] = useSearchParams()
 
     const { 
-      result,
-      search,
       handleChange,
       handleSearch,
-      searchIconIn  } = useSearchContext()
-
-    // const handleChange = (e) => {
-    //   if (e.target.value) {
-    //       setSearch(e.target.value.toLowerCase());
-    //     } else {
-    //       setSearch("undefined");
-    //     }
-    // };  
-    
-    // const handleSearch = async () => {
-    //   if (search){
-    //       const allDb = await fetchData(`https://api.themoviedb.org/3/search/multi?api_key=0c17a380a966eb856907e4b64bd5374a&language=en-US&query=${search}<&page=1&include_adult=false
-    //       `, exerciseOp)
-    //       const results = allDb.results
-    //       setResult(results)
-    //       console.log(results)
-    //       setSearch("")
-    //       setSearchParams("")
-    //     }}
-
-    // useEffect(() => {
-    //   if (!search) {setSearchParams("")}
-    //   else { 
-    //     setSearchParams({"keyword": search})
-    //    }
-    // }, [search])
-    
-    // const searchIconIn = <SearchIcon onClick={handleSearch}/>
+      searchParams  } = useSearchContext()
     
   return (
       <div className='container-search flex-center'>
@@ -57,8 +26,7 @@ export const SearchBar = () => {
                   type="search"
                   label="Search by movie, tv showr or people"
                   value={searchParams.keyword}
-                  onChange={handleChange}
-                  icon={searchIconIn}/>
+                  onChange={handleChange}/>
                                   
                   <SearchIcon onClick={handleSearch}/> 
 

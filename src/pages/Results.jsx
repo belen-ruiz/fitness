@@ -3,17 +3,18 @@ import { NavBar } from "../components/navBar/NavBar"
 import { Footer } from "../components/footer/Footer"
 import { ItemListContainer } from '../components/items/ItemListContainer'
 import { useDataContext } from "../context/DataProvider"
+import { useSearchContext } from '../context/SearchProvider'
 
 
 export const Results = () => {
-  const { result } = useDataContext()
+  const { results } = useSearchContext()
 
-  console.log(result)
+  console.log(results)
 
   return (
     <div>
       <NavBar />
-      <ItemListContainer result={result}/>
+      <ItemListContainer results={results}/>
       <Footer />
     </div>
   )

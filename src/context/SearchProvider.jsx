@@ -11,8 +11,7 @@ export const useSearchContext = () => useContext(SearchContext);
 
 export const SearchProvider = ({ children }) => {
     const [search, setSearch] = useState()
-    const [result, setResult] = useState([])  
-    const [isOpen, setIsOpen] = useState(false)
+    const [results, setResults] = useState([])  
     const [searchParams, setSearchParams] = useSearchParams()
 
     const handleChange = (e) => {
@@ -27,11 +26,10 @@ export const SearchProvider = ({ children }) => {
       if (search){
           const allDb = await fetchData(`https://api.themoviedb.org/3/search/multi?api_key=0c17a380a966eb856907e4b64bd5374a&language=en-US&query=${search}<&page=1&include_adult=false
           `, exerciseOp)
-          const results = allDb.results
-          setResult(results)
-          console.log(results)
+          const res = allDb.results
+          setResults(res)
           setSearch("")
-          setSearchParams("")
+          //setSearchParams("")
         }}
 
     useEffect(() => {
@@ -40,17 +38,15 @@ export const SearchProvider = ({ children }) => {
         setSearchParams({"keyword": search})
        }
     }, [search])
-    
-    const searchIconIn = <SearchIcon onClick={handleSearch}/>
-    
+        
   return (
     <SearchContext.Provider
       value={{
-        result,
+        results,
         search,
         handleChange,
         handleSearch,
-        searchIconIn
+        searchParams
         }} >
         {children}
     </SearchContext.Provider>
