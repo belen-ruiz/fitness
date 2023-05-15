@@ -45,7 +45,13 @@ export const SearchProvider = ({ children }) => {
     
   return (
     <SearchContext.Provider
-      value={{result}} >
+      value={{
+        result,
+        search,
+        handleChange,
+        handleSearch,
+        searchIconIn
+        }} >
         {children}
     </SearchContext.Provider>
   )
