@@ -6,14 +6,14 @@ import { useDataContext } from "../context/DataProvider"
 
 
 export const Results = () => {
-  const { results } = useDataContext()
+  const { result } = useDataContext()
 
-  console.log(results)
+  console.log(result)
 
   return (
     <div>
       <NavBar />
-      <ItemListContainer results={results}/>
+      <ItemListContainer result={result}/>
       <Footer />
     </div>
   )

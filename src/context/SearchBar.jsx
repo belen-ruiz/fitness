@@ -1,17 +1,27 @@
-import React, { useEffect, useState } from 'react'
 import { CloseRounded } from '@mui/icons-material';
 import SearchIcon from "@mui/icons-material/Search";
 import {exerciseOp, fetchData} from "../hooks/fetchData";
 import { Results } from '../pages/Results';
+import { useSearchParams } from "react-router-dom";
+import { ItemListContainer } from '../components/items/ItemListContainer';
+import { useContext, useState, useEffect, createContext } from "react";
 
-export const SearchBar = () => {
+const SearchContext = createContext([]);
+export const useSearchContext = () => useContext(SearchContext);
+
+export const SearchBar = ({ children }) => {
     const [search, setSearch] = useState()
     const [result, setResult] = useState([])  
     const [isOpen, setIsOpen] = useState(false)
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const handleChange = (e) => {
-        setSearch(e.target.value.toLowerCase());
-    };
+      if (e.target.value) {
+          setSearch(e.target.value.toLowerCase());
+        } else {
+          setSearch("undefined");
+        }
+    };  
     
     const handleSearch = async () => {
       if (search){
@@ -21,26 +31,21 @@ export const SearchBar = () => {
           setResult(results)
           console.log(results)
           setSearch("")
-    }}
+          setSearchParams("")
+        }}
 
     useEffect(() => {
-      // const searchResults = () => {
-      //   if (result){
-            
-      //   }}
-      // searchResults()
+      if (!search) {setSearchParams("")}
+      else { 
+        setSearchParams({"keyword": search})
+       }
+    }, [search])
     
-      return () => {
-        <Results />
-      }
-    }, [result])
-    
-
-    
-
-    const searchIconIn = <SearchIcon onClick={handleSearch}/> 
+    const searchIconIn = <SearchIcon onClick={handleSearch}/>
     
   return (
+    <SearchContext.Provider
+      value={{result}} >
     <div className='container-search flex-center'>
         {isOpen ? 
         <div className='input-search'>
@@ -49,9 +54,8 @@ export const SearchBar = () => {
                 id="search"
                 type="search"
                 label="Search by movie, tv showr or people"
-                value={search}
+                value={searchParams.keyword}
                 onChange={handleChange}
-                sx={{ width: 200 }}
                 icon={searchIconIn}/>
                                 
                 <SearchIcon onClick={handleSearch}/> 
@@ -68,11 +72,15 @@ export const SearchBar = () => {
         <SearchIcon /> 
         </div>
         }
+                  <ItemListContainer data={result} />
+
+        
     </div>
+    </SearchContext.Provider>
   )
 }
-
-
+//Navigate("/results");
+         
 
 
 // import { Stack, Box, Container, TextField } from "@mui/material";

@@ -254,3 +254,8 @@ a.active .title-navbar {
     height: 50vh;
     min-height:fit-content!important ;
 }
+
+.search{
+    color: var(--color-hover);
+    width: 200px;
+}

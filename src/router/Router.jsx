@@ -5,10 +5,12 @@ import { Movies } from '../pages/Movies'
 import { Results } from '../pages/Results'
 import { Series } from '../pages/Series'
 
+import { useDataContext } from "../context/DataProvider"
+
+
 // se importa en la app
 
 const allRoutes = () => {
-
     const routes = [
         {
             path:"/",
@@ -33,7 +35,7 @@ const allRoutes = () => {
         {
             path:"/results",
             exact: true,
-            element: <Results />
+            element: <Results /> 
         },
         {
             path:"/*",
