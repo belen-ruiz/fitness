@@ -18,6 +18,7 @@
 
     /* margin y padding */
     --p-mm: 1rem 2.5rem;
+    --p-t: 1rem 2.5rem;
 
     --gap-1: 2rem; 
     --gap-2: 1rem; 
@@ -29,6 +30,7 @@
     --color-primary: rgb(170, 39, 39);
     --color-secondary: rgb(200, 200, 200);;
     --color-hover: rgb(130, 130, 130);
+    --color-imghover: rgb(59, 58, 58);
     
 }
     
@@ -38,7 +40,7 @@
 }
 
 body{
-    background-color: var(--color-b);
+    background-color: var(--color-hover);
 }
 
 .flex-center{
@@ -73,11 +75,13 @@ a.active .title-navbar {
 
 .title-sm{
     font-size: var(--title-sm);
+    color: var(--color-primary);
+    padding: var(--p-t)
 }
 
 .logo{
     color: var(--color-primary);
-    font-size: var(--title-m);
+    font-size: var(--title-sm);
 }
 
 .container-navbar{
@@ -172,4 +176,81 @@ a.active .title-navbar {
 .btn-banner:hover{
     background-color: var(--color-hover);
     color: var(--color-b);
+}
+
+/* item */
+
+
+.MuiSvgIcon-root {
+    color: var(--color-hover)
+}
+
+.item-info {
+    width: 210px;
+}
+
+.item-info:hover {
+    width: 210px;
+}
+
+.hover-card{
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    transition: 4s;
+    z-index: 99;
+    border-radius: 5px;
+    background-color: var(--color-imghover);
+    width: 210px;
+    height: 50vh;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.subtitle.name{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.subtitle.media{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    justify-self: end;
+}
+
+.subtitle.rate{
+    grid-column: 1/3;
+}
+
+.subtitle.overview{
+    grid-column: 1/3;
+    font-size:var(--text);
+    width: auto;
+    overflow:hidden;
+    white-space:initial!important;
+}
+
+.item-info > div{
+    flex-direction: row;
+    color: brown;
+}
+
+.poster{
+    position: absolute;
+    z-index: 999;
+
+}
+
+.poster:hover{
+    z-index: 9;
+}
+
+.poster-img{
+    border-radius: 5px;
+}
+
+.containter-item{
+    height: 50vh;
+    min-height:fit-content!important ;
 }

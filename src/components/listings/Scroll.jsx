@@ -1,47 +1,33 @@
-import React, { useContext } from "react";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import { Box } from "@mui/material";
-import "react-horizontal-scrolling-menu/dist/styles.css";
-import { ItemInfo } from "./ItemInfo";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import { useState } from 'react';
+import {ItemInfo} from "./ItemInfo"
 
-const LetfArrow = () => {
-    const { scrollPrev } = useContext(VisibilityContext);
+export const HorizontalScrollBar = ({ data })=> {
+  const [value, setValue] = useState(0);
 
-    return <button onClick={() => scrollPrev()}> Atras </button>;
-};
-
-const RightArrow = () => {
-    const { scrollNext } = useContext(VisibilityContext);
-
-    return <button onClick={() => scrollNext()}> Delante </button>;
-};
-
-export const HorizontalScrollBar = ({ data }) => {
-
-    console.log(data)
-
-    return (
-        <ScrollMenu RightArrow={RightArrow} LetfArrow={LetfArrow}>
-            {data.map((tvshow) => (
-                <Box key={tvshow.id || tvshow}>
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  return (
+    <Box className="containter-tabs">
+      <Tabs
+        className="containter-item"
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons
+        allowScrollButtonsMobile
+        aria-label="scrollable force tabs example"
+      >
+        {data.map((tvshow) => (
+                <div className="item-box item-info" key={tvshow.id || tvshow}>
                     {data && <ItemInfo data={tvshow}/>}
-                </Box>
+                </div>
             )
             )}
-
-            {/* {trendingMovies &&
-                trendingMovies.map((movie) => (
-                    <Box key={movie.id || movie}>
-                        <ItemInfo data={movie} />
-                    </Box>
-                ))} */}
-                {/* {trendingTv && trendingTv.map((tvshow) => (
-                    <Box key={tvshow.id || tvshow}>
-                        <ItemInfo data={tvshow} />
-                    </Box>
-                ))} */}
-        </ScrollMenu>
-    );
-};
-
-
+      </Tabs>
+    </Box>
+  );
+}

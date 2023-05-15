@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import { Error404 } from '../pages/Error404'
 import { Homee } from '../pages/Homee'
 import { Movies } from '../pages/Movies'
+import { Results } from '../pages/Results'
 import { Series } from '../pages/Series'
 
 // se importa en la app
@@ -28,6 +29,11 @@ const allRoutes = () => {
             path:"/peliculas",
             exact: true,
             element: <Movies />
+        },
+        {
+            path:"/results",
+            exact: true,
+            element: <Results />
         },
         {
             path:"/*",

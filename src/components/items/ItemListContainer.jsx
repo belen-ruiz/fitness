@@ -5,7 +5,7 @@ import { ItemList } from "./ItemList";
 import { useDataContext } from "../../context/DataProvider"
 //1
 //logica y mapa de la lista
-export const ItemListContainer = ({tvshows, movies}) => {
+export const ItemListContainer = ({tvshows, movies, }) => {
     return (
         <div className="mm-1">
             {movies && movies.map((movie)=>(

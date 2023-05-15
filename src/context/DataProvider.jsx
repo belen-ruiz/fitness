@@ -10,6 +10,7 @@ export const DataProvider = ({ children }) => {
     const [tvshows, setTvshows] = useState([]);
     const [trendingTv, setTrendingTv] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
+    const [imgMovies, setImgMovies] = useState("")
 
   useEffect(() => {
       const fecthMovies = async () => {
@@ -66,13 +67,29 @@ export const DataProvider = ({ children }) => {
   }, [])
   console.log(trendingMovies)
 
+  // useEffect(() => {
+  //   const fecthImgMovies = async (id) => {
+  //       const url = ` https://api.themoviedb.org/3/movie/${id}/images?api_key=${api_key} `
+  //       const db = await fetchData(url ,exerciseOp) 
+  //       const dbResults = await db.results
+  //       console.log(db)
+
+  //       console.log(dbResults)
+  //       setImgMovies([...dbResults])
+  //   }
+  //   fecthImgMovies(id)
+  // }, [])
+  // console.log(imgMovies)
+
+
     return (
         <DataContext.Provider
             value={{
                 movies,
                 tvshows,
                 trendingTv,
-                trendingMovies
+                trendingMovies,
+                imgMovies
             }}
         >
             {children}
