@@ -6,19 +6,20 @@ import { useDataContext } from "../../context/DataProvider"
 //1
 //logica y mapa de la lista
 export const ItemListContainer = ({tvshows, movies, results }) => {
+    
     return (
-        <div className="mm-1">
-            {movies && movies.map((movie)=>(
-                <ItemList key={movie.id} data={movie} />
-            ))}
- 
-            {tvshows && tvshows.map((tvshow)=>(
-                <ItemList key={tvshow.id} data={tvshow} />
-            ))}
-
-            {results && results.map((result)=>(
-                <ItemList key={result.id} data={result} />
-            ))}
+        <div className="item-container">
+            <div className="item-list">
+                {results && results.map((result)=>(
+                    <ItemList key={result.id} data={result} />
+                ))}
+                {movies && movies.map((movie)=>(
+                    <ItemList key={movie.id} data={movie} />
+                ))}
+                {tvshows && tvshows.map((tvshow)=>(
+                    <ItemList key={tvshow.id} data={tvshow}/>
+                ))}
+            </div>
         </div>
     );
 };

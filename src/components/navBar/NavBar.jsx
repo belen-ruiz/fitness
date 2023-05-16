@@ -6,7 +6,7 @@ import { Pages } from './Pages';
 export const NavBar = () => {
   
   return (
-    <div className='container-navbar mm-1 flex-center'>
+    <div className='container-navbar container-page flex-center'>
         <Logo />
         <Pages />
         <Dashboard />        

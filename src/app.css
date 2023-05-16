@@ -4,7 +4,7 @@
     box-sizing: border-box;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(245, 245, 245);
+    color: rgb(192, 65, 65);
 }
 
 :root{
@@ -17,7 +17,7 @@
     --leyend: 0.5rem;
 
     /* margin y padding */
-    --p-mm: 1rem 2.5rem;
+    --p-mm: 1rem 2rem;
     --p-t: 1rem 2.5rem;
 
     --gap-1: 2rem; 
@@ -53,7 +53,7 @@ body{
     flex-direction: column;
 }
 
-.mm-1{
+.container-page{
     padding: var(--p-mm);
 }
 
@@ -115,6 +115,13 @@ a.active .title-navbar {
     gap: var(--gap-2);
 }
 
+.container-item, .item-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-2);
+}
 
 .banner-info{
     width: 50%;

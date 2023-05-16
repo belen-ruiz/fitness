@@ -5,7 +5,7 @@ import { SocialMedia } from './SocialMedia'
 
 export const Footer = () => {
   return (
-    <div className='container-footer mm-1 flex-column'>
+    <div className='container-footer container-page flex-column'>
       <SocialMedia />
       <MoreInfo />
       <Legal />

@@ -12,7 +12,7 @@ const { trendingTv, trendingMovies} = useDataContext()
 // console.log(trendingMovies) ok
 
   return (
-    <div className='mm-1 '>
+    <div className='container-page'>
       <div>
         <div className="title-sm">Trending Tv Shows</div>
         { trendingTv && <HorizontalScrollBar data={trendingTv}/>}

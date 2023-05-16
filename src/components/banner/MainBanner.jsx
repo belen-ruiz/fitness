@@ -3,9 +3,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ButtonInfo } from "../atoms/ButtonInfo"
 
-export const Banner = () => {
+export const MainBanner = () => {
   return (
-    <div className='container-banner mm-1'>
+    <div className='container-banner container-page'>
         <div className='banner-info flex-column'>
             <Link to={"/series"}className='container-id flex-center'>
                 <div className='tv-icon'><LiveTvRounded /></div>

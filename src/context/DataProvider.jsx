@@ -11,6 +11,8 @@ export const DataProvider = ({ children }) => {
     const [trendingTv, setTrendingTv] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [imgMovies, setImgMovies] = useState("")
+    const [genresMovie, setGenresMovie] = useState([])
+    const [genresTv, setGenresTv] = useState([])
 
   useEffect(() => {
       const fecthMovies = async () => {
@@ -19,12 +21,12 @@ export const DataProvider = ({ children }) => {
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
 
-        console.log(dbResults)
+        //console.log(dbResults)
         setMovies([...dbResults])
     }
     fecthMovies()
   }, [])
-  console.log(movies)
+  //console.log(movies)
 
   useEffect(() => {
     const fecthTvshows = async () => {
@@ -32,12 +34,12 @@ export const DataProvider = ({ children }) => {
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
 
-        console.log(dbResults)
+        //console.log(dbResults)
         setTvshows([...dbResults])
     }
     fecthTvshows()
   }, [])
-  console.log(tvshows)
+  //console.log(tvshows)
 
   useEffect(() => {
     const fecthTrendingTv = async () => {
@@ -50,7 +52,7 @@ export const DataProvider = ({ children }) => {
     }
     fecthTrendingTv()
   }, [])
-  console.log(trendingTv)
+  //console.log(trendingTv)
 
   useEffect(() => {
     const fecthTrendingMovies = async () => {
@@ -58,28 +60,36 @@ export const DataProvider = ({ children }) => {
         `
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
-        console.log(db)
 
-        console.log(dbResults)
         setTrendingMovies([...dbResults])
     }
     fecthTrendingMovies()
   }, [])
-  console.log(trendingMovies)
+  //console.log(trendingMovies)
 
-  // useEffect(() => {
-  //   const fecthImgMovies = async (id) => {
-  //       const url = ` https://api.themoviedb.org/3/movie/${id}/images?api_key=${api_key} `
-  //       const db = await fetchData(url ,exerciseOp) 
-  //       const dbResults = await db.results
-  //       console.log(db)
+  useEffect(() => {
+    const fetchGenresMovie = async () => {
+        const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=en-US`
+        const db = await fetchData(url ,exerciseOp) 
+        const genresObj = await db.genres
+       //console.log(genresObj)// array
+       setGenresMovie([...genresObj])
+    }
+    fetchGenresMovie()
+  }, [])
+  //console.log(genresMovie)
 
-  //       console.log(dbResults)
-  //       setImgMovies([...dbResults])
-  //   }
-  //   fecthImgMovies(id)
-  // }, [])
-  // console.log(imgMovies)
+  useEffect(() => {
+    const fetchGenresTv = async () => {
+        const url = `https://api.themoviedb.org/3/genre/tv/list?api_key=${api_key}&language=en-US`
+        const db = await fetchData(url ,exerciseOp) 
+        const genresObj = await db.genres
+       console.log(genresObj)// array
+       setGenresTv([...genresObj])
+    }
+    fetchGenresTv()
+  }, [])
+  console.log(genresTv)
 
 
     return (
@@ -89,7 +99,9 @@ export const DataProvider = ({ children }) => {
                 tvshows,
                 trendingTv,
                 trendingMovies,
-                imgMovies
+                imgMovies,
+                genresMovie,
+                genresTv
             }}
         >
             {children}

@@ -14,7 +14,8 @@ export const SearchBar = () => {
     const { 
       handleChange,
       handleSearch,
-      searchParams  } = useSearchContext()
+      searchParams,
+      handleFocus  } = useSearchContext()
     
   return (
       <div className='container-search flex-center'>
@@ -26,7 +27,8 @@ export const SearchBar = () => {
                   type="search"
                   label="Search by movie, tv showr or people"
                   value={searchParams.keyword}
-                  onChange={handleChange}/>
+                  onChange={handleChange}
+                  onFocus={handleFocus}/>
                                   
                   <SearchIcon onClick={handleSearch}/> 
 

@@ -2,12 +2,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
-import {ItemInfo} from "./ItemInfo"
+import { ItemList } from './ItemList';
 
 export const HorizontalScrollBar = ({ data })=> {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
   return (
@@ -23,7 +23,7 @@ export const HorizontalScrollBar = ({ data })=> {
       >
         {data.map((tvshow) => (
                 <div className="item-box item-info" key={tvshow.id || tvshow}>
-                    {data && <ItemInfo data={tvshow}/>}
+                    {data && <ItemList data={tvshow}/>}
                 </div>
             )
             )}
