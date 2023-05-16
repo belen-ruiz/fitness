@@ -2,8 +2,6 @@ import { CloseRounded } from '@mui/icons-material';
 import SearchIcon from "@mui/icons-material/Search";
 import {exerciseOp, fetchData} from "../hooks/fetchData";
 import { Results } from '../pages/Results';
-import { useSearchParams } from "react-router-dom";
-import { ItemListContainer } from '../components/items/ItemListContainer';
 import { useContext, useState, useEffect, createContext } from "react";
 import { useSearchContext } from './SearchProvider';
 

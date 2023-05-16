@@ -7,17 +7,41 @@ import { CatBanner } from "../components/banner/CatBanner"
 
 
 export const Series = () => {
-  const { tvshows } = useDataContext()
+  const { tvshows, genresTv } = useDataContext()
 
-  const [value, setValue] = useState("") 
+  const [currentGenre, setCurrentGenre] = useState("") 
 
+  console.log(currentGenre)
+  console.log(genresTv)
+
+  const [ genres, ...rest] = genresTv
+  const {name: genreName} = genreName
+  const {id: genreId} = genreId
+
+  const datos = genresTv.map((objeto) => {
+    const {name} = objeto;
+    const {id} = id;
+    return name, id
+  })
+  console.log( id)
+
+  datos()
+
+
+  
   return (
     <div>
         <NavBar />
 
         <div className='container-page'>
-          <CatBanner value={value} setValue={setValue}/>
-          <ItemListContainer tvshows={tvshows} 
+          <CatBanner 
+            value={currentGenre}
+           setCurrentGenre={setCurrentGenre} 
+           genresTv={genresTv}/>
+          <ItemListContainer 
+          currentGenre={currentGenre} 
+          genresTv={genresTv}
+          tvshows={tvshows} 
         />
         </div>
         

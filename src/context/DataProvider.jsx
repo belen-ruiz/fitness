@@ -34,6 +34,9 @@ export const DataProvider = ({ children }) => {
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
 
+        //const genreId = [genresObj.genre_ids];
+       console.log(dbResults.id)// array
+
         //console.log(dbResults)
         setTvshows([...dbResults])
     }
@@ -84,12 +87,11 @@ export const DataProvider = ({ children }) => {
         const url = `https://api.themoviedb.org/3/genre/tv/list?api_key=${api_key}&language=en-US`
         const db = await fetchData(url ,exerciseOp) 
         const genresObj = await db.genres
-       console.log(genresObj)// array
        setGenresTv([...genresObj])
     }
     fetchGenresTv()
   }, [])
-  console.log(genresTv)
+  //console.log(genresTv)
 
 
     return (

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useDataContext } from "../../context/DataProvider"
 
-export const CatBanner = ({value, setValue}) => {
-    const { genresTv, genresMovie } = useDataContext()
+//viene de series
+export const CatBanner = ({value, setCurrentGenre, genresTv}) => {
+    const { genresMovie } = useDataContext()
     const { series } = useParams()
     const [searchParams, setSearchParams] = useSearchParams()
 
-    console.log(genresTv)
+    console.log(genresTv.id)
 
     useEffect(() => {
         setSearchParams({"keyword": value})
@@ -16,7 +17,7 @@ export const CatBanner = ({value, setValue}) => {
     console.log(value)
     
     const handleChange = (e) => {
-        setValue(e.target.value)
+        setCurrentGenre(e.target.value)
     }
 
     //si obj id == datagenreid return obj name
@@ -33,7 +34,7 @@ export const CatBanner = ({value, setValue}) => {
                     </option>            
                     {genresTv.map((e) => (
                         <option id={e.id} key={e.name}>
-                            {e.name}
+                            {e.id}-{e.name}
                         </option> ))}
                 </select>
             </div>
