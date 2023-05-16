@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 
 //2
 //luego on click de estos item se va a otro componente y params ITEMContainer
-export const ItemList = ({ data, currentGenre }) => {
+export const ItemList = ({ data, currentGenreIds }) => {
+  
   const baseUrl="https://image.tmdb.org/t/p";
   const fileSize= "w200";
   const filePath= data.poster_path;
@@ -15,23 +16,17 @@ export const ItemList = ({ data, currentGenre }) => {
   const mediaType = data.media_type; 
   const voteAv = data.vote_average; 
   const overview = data.overview;
-  
-  console.log(currentGenre)
 
-  // const genre = data.filter(genre => idGenre == gender.id)
-  // setItem(...item, item)
 
-//genre_ids tiene que coincidir con currentGenre.id
-  // const genre = data.filter(genre => idGenre == gender.id)
-  // setItem(...item, item)
-  
-
-  return (
-    
+  return (    
     <div className='item-info flex-column' id={genreId} >
         <div className={`hover-card`}>
           <div className='subtitle name' >{title}</div>
-          <div className='subtitle media'>{(mediaType === "tv" ) ?  (<TvSharp />) : <MovieSharp />}</div>
+          <div className='subtitle media'>
+            {mediaType === "tv" &&  <TvSharp />}
+            {mediaType === "movie" && <MovieSharp />}
+            {mediaType == null && ""}
+          </div>
           <div className='subtitle rate' >{voteAv}</div>
           <p className='subtitle overview'>{overview}</p>
         </div>

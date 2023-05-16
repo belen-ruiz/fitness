@@ -18,24 +18,24 @@ const allRoutes = () => {
             element: <Homee />
         },
         {
-            path:"/inicio",
+            path:"/page/home",
             exact: true,
             element: <Homee />
         },
         {
-            path:"/:series/",
+            path:"/page/tvshows",
             exact: true,
             element: <Series />
         },
         {
-            path:"/:series/:genre",
-            exact: true,
-            element: <Series />
-        },
-        {
-            path:"/:peliculas",
+            path:"/page/movies",
             exact: true,
             element: <Movies />
+        },
+        {
+            path:"/:page/:genre",
+            exact: true,
+            element: <Series />
         },
         {
             path:"/results/:search",

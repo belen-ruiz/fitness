@@ -21,7 +21,7 @@ export const DataProvider = ({ children }) => {
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
 
-        //console.log(dbResults)
+        console.log(dbResults)
         setMovies([...dbResults])
     }
     fecthMovies()
@@ -37,7 +37,7 @@ export const DataProvider = ({ children }) => {
         //const genreId = [genresObj.genre_ids];
        console.log(dbResults.id)// array
 
-        //console.log(dbResults)
+        console.log(dbResults)
         setTvshows([...dbResults])
     }
     fecthTvshows()
@@ -87,12 +87,15 @@ export const DataProvider = ({ children }) => {
         const url = `https://api.themoviedb.org/3/genre/tv/list?api_key=${api_key}&language=en-US`
         const db = await fetchData(url ,exerciseOp) 
         const genresObj = await db.genres
-       setGenresTv([...genresObj])
-    }
-    fetchGenresTv()
-  }, [])
-  //console.log(genresTv)
 
+        setGenresTv([...genresObj])
+      }
+      fetchGenresTv()
+    }, [])
+    //console.log(genresTv)
+        
+    const genIds = genresTv.map((e) => e.id)
+    const genNames = genresTv.map((e) => e.name)
 
     return (
         <DataContext.Provider
@@ -103,7 +106,9 @@ export const DataProvider = ({ children }) => {
                 trendingMovies,
                 imgMovies,
                 genresMovie,
-                genresTv
+                genresTv,
+                genIds,
+                genNames,
             }}
         >
             {children}

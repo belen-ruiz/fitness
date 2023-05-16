@@ -7,7 +7,7 @@ export const MainBanner = () => {
   return (
     <div className='container-banner container-page'>
         <div className='banner-info flex-column'>
-            <Link to={"/series"}className='container-id flex-center'>
+            <Link to={"/pages/series"}className='container-id flex-center'>
                 <div className='tv-icon'><LiveTvRounded /></div>
                 <div className='id-type'>SERIE</div>
             </Link> 

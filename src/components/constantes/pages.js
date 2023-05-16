@@ -1,3 +1,4 @@
+
 export const pages =
-    ["inicio", "series", "peliculas", "populares"];
+    ["home", "tvshows", "movies", "populares"];
 

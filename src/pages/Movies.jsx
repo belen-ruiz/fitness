@@ -7,7 +7,7 @@ import { CatBanner } from "../components/banner/CatBanner"
 
 
 export const Movies = () => {
-  const { movies } = useDataContext()
+  const { movies, genresMovie } = useDataContext()
 
   console.log(movies)
 
@@ -15,8 +15,11 @@ export const Movies = () => {
     <div>
       <NavBar />
         <div className='container-page'>
-          <CatBanner />
-          <ItemListContainer movies={movies}/>
+          <CatBanner 
+            genresMovie={genresMovie}/>
+          <ItemListContainer 
+            data={movies}
+            genresMovie={genresMovie}/>
         </div>
       <Footer />
     </div>
