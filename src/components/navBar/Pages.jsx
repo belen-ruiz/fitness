@@ -8,7 +8,7 @@ export const Pages = () => {
     <div className='container-pages flex-center'>
       {pages && pages.map((page) => 
       (<NavLink 
-        to={`/page/${page}`} 
+        to={`/${page}`} 
         key={page} 
         className={({ isActive }) => (isActive ? 'active' : '')}>
           <h5 className='title-navbar'>{page}</h5>

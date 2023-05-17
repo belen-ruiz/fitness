@@ -4,6 +4,7 @@ import { Homee } from '../pages/Homee'
 import { Movies } from '../pages/Movies'
 import { Results } from '../pages/Results'
 import { Series } from '../pages/Series'
+import { ItemDetail } from '../pages/ItemDetail'
 
 import { useDataContext } from "../context/DataProvider"
 
@@ -23,14 +24,24 @@ const allRoutes = () => {
             element: <Homee />
         },
         {
-            path:"/page/tvshows",
+            path:"/tvshows",
             exact: true,
             element: <Series />
         },
         {
-            path:"/page/movies",
+            path:"/tvshows/tvshow:id",
+            exact: false,
+            element: <ItemDetail />
+        },
+        {
+            path:"/movies",
             exact: true,
             element: <Movies />
+        },
+        {
+            path:"/movies/:movie_id",
+            exact: false,
+            element: <ItemDetail />
         },
         {
             path:"/:page/:genre",

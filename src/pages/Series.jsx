@@ -11,7 +11,8 @@ export const Series = () => {
     tvshows, 
     genresTv, 
     currentGenreIds,
-    setCurrentGenreIds} = useDataContext()
+    setCurrentGenreIds,
+    handleSelectGenre} = useDataContext()
 
     const [currentGenre, setCurrentGenre] = useState() 
     const [tvshowFiltered, setTvshowFiltered] = useState([]) 
@@ -28,6 +29,7 @@ export const Series = () => {
             genresTv={genresTv}
             currentGenreIds={currentGenreIds}
             setCurrentGenreIds={setCurrentGenreIds} 
+            handleSelectGenre={handleSelectGenre}
            />
           <ItemListContainer 
             data={tvshows} 

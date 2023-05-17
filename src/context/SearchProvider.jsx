@@ -5,6 +5,8 @@ import { Results } from '../pages/Results';
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ItemListContainer } from '../components/items/ItemListContainer';
 import { useContext, useState, useEffect, createContext } from "react";
+import { useParams } from 'react-router-dom';
+import { useDataContext } from './DataProvider';
 
 const SearchContext = createContext([]);
 export const useSearchContext = () => useContext(SearchContext);
@@ -13,6 +15,9 @@ export const SearchProvider = ({ children }) => {
     const [search, setSearch] = useState()
     const [results, setResults] = useState([])  
     const [searchParams, setSearchParams] = useSearchParams()
+    const  {genre}  = useParams() 
+    const {tvshows, setTvshows} = useDataContext()
+
     const navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -39,6 +44,22 @@ export const SearchProvider = ({ children }) => {
        }
     }
 
+    const handleGenreSelect = async (e) => {
+      
+      const genre = "Comedy"
+      //"search": value}
+      //e.preventDefault()
+      if (genre){
+          const allDb = await fetchData(` https://api.themoviedb.org/3/discover/tv?api_key=0c17a380a966eb856907e4b64bd5374a&sort_by=popularity.desc&page=1&with_genres=${genre}&include_null_first_air_dates=false
+          `, exerciseOp)
+          const res = allDb.results
+          setTvshows(res)
+          console.log(tvshows)
+       }
+      
+    }
+
+
     const handleFocus = (e) => {
       setSearchParams("")
     }
@@ -61,7 +82,8 @@ export const SearchProvider = ({ children }) => {
         handleChange,
         handleSearch,
         handleFocus,
-        searchParams
+        searchParams,
+        handleGenreSelect
         }} >
         {children}
     </SearchContext.Provider>

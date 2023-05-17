@@ -3,16 +3,17 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import { useDataContext } from "../../context/DataProvider"
 
 //viene de series
-export const CatBanner = ({value, currentGenreIds, setCurrentGenreIds, genresTv, genresMovie}) => {
+export const CatBanner = ({value, currentGenreIds, setCurrentGenreIds, genresTv, genresMovie, handleSelectGenre}) => {
 
     const [searchParams, setSearchParams] = useSearchParams()
+    const { handleGenreSelect } = useDataContext()
     
     const handleChange = (e) => {
-        setCurrentGenreIds(parseInt(e.target.value))
-        setSearchParams({"search": value})
+        setCurrentGenreIds(e.target.value)
+        setSearchParams({"search": e.target.value})
     }
-    //console.log(currentGenreIds)
-    
+
+
     //si obj id == datagenreid return obj name
   return (
     <div className='item-container'>
@@ -21,13 +22,13 @@ export const CatBanner = ({value, currentGenreIds, setCurrentGenreIds, genresTv,
             { genresTv && 
                 (<div>
                     <h1>Series</h1>
-                    <select name="type" id="type" onChange={handleChange}>
+                    <select name="type" id="type" onChange={handleGenreSelect}>
                         <option>
                             Géneros
                         </option>            
                         {genresTv.map((e) => (
-                            <option id={e.id} key={e.name} value={e.id}>
-                                {e.id}-{e.name}
+                            <option id={e.id} key={e.name} value={e.name}>
+                                {e.name}
                             </option> ))}
                     </select>
                 </div>

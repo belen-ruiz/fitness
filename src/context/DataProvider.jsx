@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect, createContext } from "react";
+import { useParams } from "react-router-dom";
 import { fetchData, exerciseOp } from "../hooks/fetchData";
 
 const api_key = "0c17a380a966eb856907e4b64bd5374a"
@@ -43,18 +44,42 @@ export const DataProvider = ({ children }) => {
     fecthTvshows()
   }, [])
   //console.log(tvshows)
-  
+///////////////////////////
+const handleSelectGenre = 1
+  // const handleSelectGenre = async (e) => {
+  //   e.preventDefault()
+  //   if (genre){
+  //       const allDb = await fetchData(`https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&page=1&with_genres=${genre}
+  //       `, exerciseOp)
+  //       const res = allDb.results
+  //       setTvshows(res)
+  //    }
+    
+  //   // if (results) {
+  //   //    navigate(`/genre/${search}`);
+  //   //  }
+  // }
+
+  // useEffect(() => {
+  //   if (!search) {setSearchParams("")}
+  //   else { 
+  //     setSearchParams({"keyword": search})
+  //    }
+  // }, [search])
+
+
+
+  /////filtrado ???
   useEffect(() => {
 
-    const filterTvshows = tvshows.map((elem) => {
-      const match = elem.genre_ids.filter((id) => id == currentGenreIds) 
+    const filterTvshows = tvshows.map((tvshow) => {
+      const match = tvshow.genre_ids.filter((id) => id == currentGenreIds) 
       console.log(match)
-      return match
     })
 
-      console.log(filterTvshows) 
+      console.log(filterTvshows)  //array completo sin filtar
 
-      setTv(...filterTvshows)
+      setTv(filterTvshows)
       console.log(tv) 
   }, [currentGenreIds])
   
@@ -108,9 +133,11 @@ export const DataProvider = ({ children }) => {
       fetchGenresTv()
     }, [])
     //console.log(genresTv)
-        
+    
     const genIds = genresTv.map((e) => e.id)
     const genNames = genresTv.map((e) => e.name)
+    
+    
 
     return (
         <DataContext.Provider
@@ -126,6 +153,7 @@ export const DataProvider = ({ children }) => {
                 genNames,
                 currentGenreIds,
                 setCurrentGenreIds,
+                handleSelectGenre,
             }}
         >
             {children}
