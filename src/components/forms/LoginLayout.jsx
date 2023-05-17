@@ -1,11 +1,11 @@
-import { useForm } from "./useForm";
+import { useForm } from "../../hooks/useForm";
 import { initialForm, validationsForm } from "./formData";
 import { inputsSignIn, inputsSignUp } from "./inputs";
 import { useState } from "react";
 import { RegisterLayout } from "./RegisterLayout"
 import { SignInLayout } from "./SignInLayout"
 
-export const SignIn = () => {
+export const LoginContainer = () => {
     const [signIn, setSignIn] = useState(false);
     const [signUp, setSignUp] = useState(false);
 

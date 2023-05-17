@@ -5,7 +5,7 @@ import { Movies } from '../pages/Movies'
 import { Results } from '../pages/Results'
 import { Series } from '../pages/Series'
 import { ItemDetail } from '../pages/ItemDetail'
-import { Access } from '../pages/Access'
+import { Access, Login } from '../pages/Login'
 
 import { useDataContext } from "../context/DataProvider"
 
@@ -55,9 +55,9 @@ const allRoutes = () => {
             element: <Results /> 
         },
         {
-            path:"/access",
+            path:"/login",
             exact: true,
-            element: <Access /> 
+            element: <Login /> 
         },
         {
             path:"/*",
