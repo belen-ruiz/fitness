@@ -24,7 +24,7 @@ export const DataProvider = ({ children }) => {
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
 
-        console.log(dbResults)
+        //console.log(dbResults)
         setMovies([...dbResults])
     }
     fecthMovies()
@@ -45,17 +45,19 @@ export const DataProvider = ({ children }) => {
   //console.log(tvshows)
   
   useEffect(() => {
-    const filterTvshows = tvshows.map((elem) => {
-      const match = elem.genre_ids.filter(id =>
-        id      )
-      console.log(match)
-    })
-    setTv(filterTvshows)
-    console.log(filterTvshows)
 
+    const filterTvshows = tvshows.map((elem) => {
+      const match = elem.genre_ids.filter((id) => id == currentGenreIds) 
+      console.log(match)
+      return match
+    })
+
+      console.log(filterTvshows) 
+
+      setTv(...filterTvshows)
+      console.log(tv) 
   }, [currentGenreIds])
   
-  console.log(currentGenreIds)
 
   useEffect(() => {
     const fecthTrendingTv = async () => {

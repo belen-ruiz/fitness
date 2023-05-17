@@ -8,13 +8,8 @@ import { useDataContext } from "../../context/DataProvider"
 //viene de series o movies
 export const ItemListContainer = ({data, results, currentGenreIds }) => {   
 
-    
-//   //tvshows.genre_ids == currentGenreIds && renderiza
-//   const genreIds = genreId.filter(ids => ids === currentGenreIds)
-//   console.log(currentGenreIds)
-//   console.log(genreIds)
 
-    console.log(data)
+    //console.log(data)
     
     return (
         <div className="item-container">
