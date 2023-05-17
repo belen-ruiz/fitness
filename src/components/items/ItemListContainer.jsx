@@ -6,32 +6,25 @@ import { useDataContext } from "../../context/DataProvider"
 //1
 //logica y mapa de la lista
 //viene de series o movies
-export const ItemListContainer = ({data, results, currentGenreIds, tvshowFiltered }) => {   
+export const ItemListContainer = ({data, results, currentGenreIds }) => {   
 
-    const { page } = useParams()
- 
-    useEffect(() => {
-     
-    }, [page])
     
+//   //tvshows.genre_ids == currentGenreIds && renderiza
+//   const genreIds = genreId.filter(ids => ids === currentGenreIds)
+//   console.log(currentGenreIds)
+//   console.log(genreIds)
 
     console.log(data)
+    
     return (
         <div className="item-container">
             <div className="item-list">
-                {/* {results && results.map((result)=>(
+                {results && results.map((result)=>(
                     <ItemList key={result.id} data={result} />
-                ))} */}
-                {data && data.map((movie)=>(
-                    <ItemList key={movie.id} data={movie} />
                 ))}
-                {/* {tvshows && tvshows.map((tvshow)=>(
-                    <ItemList key={tvshow.id} data={tvshow}/>
-                ))} */}
-                {/* {data && data.map((tvshow)=>(
-                    <ItemList key={tvshow.id} data={tvshow}/>
-                ))} */}
-                
+                {data && data.map((picture)=>(
+                    <ItemList key={picture.id} data={picture} />
+                ))}                
             </div>
         </div>
     );

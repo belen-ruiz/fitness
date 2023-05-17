@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 //2
 //luego on click de estos item se va a otro componente y params ITEMContainer
-export const ItemList = ({ data, currentGenreIds }) => {
+export const ItemList = ({ data }) => {
   
   const baseUrl="https://image.tmdb.org/t/p";
   const fileSize= "w200";
@@ -16,7 +16,6 @@ export const ItemList = ({ data, currentGenreIds }) => {
   const mediaType = data.media_type; 
   const voteAv = data.vote_average; 
   const overview = data.overview;
-
 
   return (    
     <div className='item-info flex-column' id={genreId} >

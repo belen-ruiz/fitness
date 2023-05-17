@@ -3,23 +3,16 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import { useDataContext } from "../../context/DataProvider"
 
 //viene de series
-export const CatBanner = ({value, setCurrentGenreIds, genresTv, genresMovie}) => {
-        const { movies } = useParams()
-    console.log(movies)
+export const CatBanner = ({value, currentGenreIds, setCurrentGenreIds, genresTv, genresMovie}) => {
+
     const [searchParams, setSearchParams] = useSearchParams()
-
-    useEffect(() => {
-        setSearchParams({"search": value})
-    }, [value])
-
-    //console.log(value)
     
     const handleChange = (e) => {
         setCurrentGenreIds(parseInt(e.target.value))
+        setSearchParams({"search": value})
     }
+    //console.log(currentGenreIds)
     
-    // const genreRef = useRef(); ref={genreRef} 
-    // console.log(genreRef)
     //si obj id == datagenreid return obj name
   return (
     <div className='item-container'>

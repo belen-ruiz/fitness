@@ -13,6 +13,9 @@ export const DataProvider = ({ children }) => {
     const [imgMovies, setImgMovies] = useState("")
     const [genresMovie, setGenresMovie] = useState([])
     const [genresTv, setGenresTv] = useState([])
+    const [currentGenreIds, setCurrentGenreIds] = useState() 
+    const [tv, setTv] = useState([]) 
+
 
   useEffect(() => {
       const fecthMovies = async () => {
@@ -28,21 +31,31 @@ export const DataProvider = ({ children }) => {
   }, [])
   //console.log(movies)
 
+  
   useEffect(() => {
     const fecthTvshows = async () => {
         const url = `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&language=en-US`
         const db = await fetchData(url ,exerciseOp) 
         const dbResults = await db.results
-
-        //const genreId = [genresObj.genre_ids];
-       console.log(dbResults.id)// array
-
-        console.log(dbResults)
+        //console.log(dbResults)
         setTvshows([...dbResults])
     }
     fecthTvshows()
   }, [])
   //console.log(tvshows)
+  
+  useEffect(() => {
+    const filterTvshows = tvshows.map((elem) => {
+      const match = elem.genre_ids.filter(id =>
+        id      )
+      console.log(match)
+    })
+    setTv(filterTvshows)
+    console.log(filterTvshows)
+
+  }, [currentGenreIds])
+  
+  console.log(currentGenreIds)
 
   useEffect(() => {
     const fecthTrendingTv = async () => {
@@ -109,6 +122,8 @@ export const DataProvider = ({ children }) => {
                 genresTv,
                 genIds,
                 genNames,
+                currentGenreIds,
+                setCurrentGenreIds,
             }}
         >
             {children}

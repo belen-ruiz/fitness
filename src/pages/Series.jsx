@@ -10,16 +10,14 @@ export const Series = () => {
   const { 
     tvshows, 
     genresTv, 
-    genIds,
-    genNames } = useDataContext()
+    currentGenreIds,
+    setCurrentGenreIds} = useDataContext()
 
     const [currentGenre, setCurrentGenre] = useState() 
-    const [currentGenreIds, setCurrentGenreIds] = useState("0000") 
     const [tvshowFiltered, setTvshowFiltered] = useState([]) 
-    console.log(currentGenreIds) //id current  
-    console.log(genIds)  //todos los ids
-    console.log(tvshows)  
-    
+    //console.log(genIds)  //todos los ids
+    //console.log(tvshows)  
+
   return (
     <div>
         <NavBar />
@@ -28,6 +26,7 @@ export const Series = () => {
           <CatBanner 
             // value={currentGenre}
             genresTv={genresTv}
+            currentGenreIds={currentGenreIds}
             setCurrentGenreIds={setCurrentGenreIds} 
            />
           <ItemListContainer 
