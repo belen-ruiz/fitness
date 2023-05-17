@@ -266,3 +266,24 @@ a.active .title-navbar {
     color: var(--color-hover);
     width: 200px;
 }
+
+
+
+.form{
+    border: 1px solid green;
+}
+
+.form.signup-form{
+    background-color: aquamarine;
+}
+
+.form.signup-form.active{
+    background-color: blueviolet;
+}
+.form.signin-form{
+    background-color: aquamarine;
+}
+
+.form.signin-form.active{
+    background-color: blueviolet;
+}

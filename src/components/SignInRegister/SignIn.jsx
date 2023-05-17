@@ -1,45 +1,58 @@
 import React, { useState } from "react";
 
 export const SignIn = () => {
+    const [signIn, setSignIn] = useState(false);
+    const [signUp, setSignUp] = useState(false);
 
-  const [signIn, toggle] = useState(true)
-  
+    const handleClickIn = () => {
+      setSignIn(!signIn)
+    };
+
+    const handleClickUp = () => {
+      setSignUp(!signUp)
+    };
+
+    const handleSumbit = () => {};
+
     return (
         <div>
-            <div signIn={signIn}>
+            {/* ///welcome screen */}
+            <div className="welcome-screen">
+                <div className="welcome-screen-left">
+                    <div>SIGN IN</div>
+                    <div href="#">
+                        Si ya tienes una cuenta 
+                    </div>
+                    <button onClick={handleClickIn}>Sigin In</button>
+                </div>
+
+                <div className="welcome-screen-right">
+                    <div>REGISTER</div>
+                    <div href="#">
+                        crea tu cuenta
+                    </div>
+                    <button onClick={handleClickUp}>Sigin up</button>
+                </div>
+            </div>
+
+            <div className={signIn ? "form signin-form active" : "form signin-form"}>
+                <form>
+                    <div>Sign in</div>
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <div href="#">Forgot your password?</div>
+                    <button onClick={handleSumbit}>Sigin In</button>
+                </form>
+            </div>
+
+            <div className={signUp ? "form signup-form active" : "form signup-form"}>
                 <form>
                     <div className="title">Create Account</div>
                     <input type="text" placeholder="Name" />
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" />
-                    <button>Sign Up</button>
+                    <button onClick={handleSumbit}>Sign Up</button>
                 </form>
-            </div>
-
-            <div signIn={signIn}>
-                   <form>
-                       <div>Sign in</div>
-                       <input type='email' placeholder='Email' />
-                       <input type='password' placeholder='Password' />
-                       <div href='#'>Forgot your password?</div>
-                       <button>Sigin In</button>
-                   </form>
-            </div>
-
-            <div className="" signIn={signIn}>
-              <div className="" signIn={signIn}>
-                <div className="left" signIn={signIn}>
-                    <div>Welcome Back!</div>
-                    <div href='#'>To keep connected with us please login with your personal info</div>
-                    <button onClick={() => toggle(true)}>Sigin In</button>
-                </div>
-
-                <div className="right" signIn={signIn}>
-                    <div>Hello, Friend!</div>
-                    <div href='#'>Enter Your personal details and start journey with us</div>
-                    <button onClick={() => toggle(false)}>Sigin up</button>
-                </div>
-              </div>
             </div>
         </div>
     );
