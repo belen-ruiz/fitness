@@ -18,6 +18,7 @@ export const ItemList = ({ data }) => {
   const mediaType = data.media_type; 
   const voteAv = data.vote_average; 
   const overview = data.overview;
+  console.log(data)
 
   return (    
     <Link to={`${id}`}>

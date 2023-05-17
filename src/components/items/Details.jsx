@@ -9,13 +9,11 @@ export const Details = ({ data }) => {
     production_companies
   } = data
     
-    console.log(production_companies)
-
   return (
     <div>
       <div>
         {genres &&
-        genres.map((e) => <div>{e.name}</div>
+        genres.map((e) => <div key={e.name}>{e.name}</div>
         )}
       </div>
 

@@ -5,6 +5,7 @@ import { Movies } from '../pages/Movies'
 import { Results } from '../pages/Results'
 import { Series } from '../pages/Series'
 import { ItemDetail } from '../pages/ItemDetail'
+import { Access } from '../pages/Access'
 
 import { useDataContext } from "../context/DataProvider"
 
@@ -29,7 +30,7 @@ const allRoutes = () => {
             element: <Series />
         },
         {
-            path:"/tvshows/tvshow:id",
+            path:"/tvshows/:tvshow_id",
             exact: false,
             element: <ItemDetail />
         },
@@ -52,6 +53,11 @@ const allRoutes = () => {
             path:"/results/:search",
             exact: true,
             element: <Results /> 
+        },
+        {
+            path:"/access",
+            exact: true,
+            element: <Access /> 
         },
         {
             path:"/*",
