@@ -1,59 +1,198 @@
-import React, { useState } from "react";
+import { useForm } from "./useForm";
+import { initialForm, validationsForm } from "./formData";
+import { inputsSignIn, inputsSignUp } from "./inputs";
+import { useState } from "react";
+import { RegisterLayout } from "./RegisterLayout"
+import { SignInLayout } from "./SignInLayout"
 
 export const SignIn = () => {
     const [signIn, setSignIn] = useState(false);
     const [signUp, setSignUp] = useState(false);
 
-    const handleClickIn = () => {
-      setSignIn(!signIn)
+    const handleClick = () => {
+        setSignIn(!signIn);
+        setSignUp(!signUp);
     };
 
-    const handleClickUp = () => {
-      setSignUp(!signUp)
-    };
-
-    const handleSumbit = () => {};
+    const {
+        form,
+        errors,
+        loading,
+        response,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+    } = useForm(initialForm, validationsForm);
 
     return (
-        <div>
-            {/* ///welcome screen */}
-            <div className="welcome-screen">
-                <div className="welcome-screen-left">
+        <div className="container-login">
+            <div className="screen welcome">
+                <div className="screen login">
+                    
+
+                    <SignInLayout form={form}
+                                    signIn={signIn}
+                                    errors={errors}
+                                    loading={loading}
+                                    response={response}
+                                    handleChange={handleChange}
+                                    handleBlur={handleBlur}
+                                    handleSubmit={handleSubmit}
+                                    />
+                    <RegisterLayout form={form}
+                                    signUp={signUp}
+                                    errors={errors}
+                                    loading={loading}
+                                    response={response}
+                                    handleChange={handleChange}
+                                    handleBlur={handleBlur}
+                                    handleSubmit={handleSubmit}
+                                    />
+                </div>
+
+                <div className="login-screens signin">
                     <div>SIGN IN</div>
-                    <div href="#">
-                        Si ya tienes una cuenta 
-                    </div>
-                    <button onClick={handleClickIn}>Sigin In</button>
+                    <div href="#">Si ya tienes una cuenta</div>
+                    <button onClick={handleClick}>Sigin In</button>
                 </div>
 
-                <div className="welcome-screen-right">
+                <div className="login-screens signup">
                     <div>REGISTER</div>
-                    <div href="#">
-                        crea tu cuenta
-                    </div>
-                    <button onClick={handleClickUp}>Sigin up</button>
+                    <div href="#">Crea tu cuenta</div>
+                    <button onClick={handleClick}>Sigin up</button>
                 </div>
             </div>
-
-            <div className={signIn ? "form signin-form active" : "form signin-form"}>
-                <form>
-                    <div>Sign in</div>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <div href="#">Forgot your password?</div>
-                    <button onClick={handleSumbit}>Sigin In</button>
-                </form>
-            </div>
-
-            <div className={signUp ? "form signup-form active" : "form signup-form"}>
-                <form>
-                    <div className="title">Create Account</div>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button onClick={handleSumbit}>Sign Up</button>
-                </form>
-            </div>
+            <div onClick={handleClick}> x </div>
         </div>
     );
-};
+}
+// import { useForm } from "./useForm";
+// import { initialForm, validationsForm } from "./formData";
+// import { inputsSignIn, inputsSignUp } from "./inputs";
+// import { useState } from "react";
+// import { RegisterLayout } from "./RegisterLayout"
+// import { SignInLayout } from "./SignInLayout"
+
+// export const SignIn = () => {
+//     const [signIn, setSignIn] = useState(false);
+//     const [signUp, setSignUp] = useState(false);
+//     const [value, setValue] = useState();
+
+//     const handleClick = () => {
+//         setSignIn(!signIn);
+//         setSignUp(!signUp);
+//     };
+
+//     const {
+//         form,
+//         errors,
+//         loading,
+//         response,
+//         handleChange,
+//         handleBlur,
+//         handleSubmit,
+//     } = useForm(initialForm, validationsForm);
+
+//     return (
+//         <div className="container-login">
+//             <div className="screen welcome">
+//                 <div className="screen login">
+//                     {/* <div
+//                         className={signIn
+//                                 ? "login-screens signin-form active"
+//                                 : "login-screens signin-form"
+//                         }
+//                     >
+//                         <div className="title">Sign in</div>
+//                         <form onSubmit={handleSubmit}>
+//                             {inputsSignIn &&
+//                                 inputsSignIn.map((input) => (
+//                                     <div key={input.name}>
+//                                         <label htmlFor={input.name}>
+//                                             {input.label}
+//                                         </label>
+//                                         <input
+//                                             type={input.type}
+//                                             name={input.name}
+//                                             placeholder={input.placeholder}
+//                                             onBlur={handleBlur}
+//                                             onChange={handleChange}
+//                                             required={input.required}
+//                                             value={value}
+//                                         />
+//                                     </div>
+//                                 ))}
+
+//                             {(errors.name && <p>{errors.name}</p>) ||
+//                                 (errors.email && <p>{errors.email}</p>)}
+
+//                             <div href="#">Forgot your password?</div>
+
+//                             <input
+//                                 type="submit"
+//                                 value="Enviar"
+//                                 onClick={handleSubmit}
+//                             />
+//                         </form>
+//                     </div> */}
+
+//                     <SignInLayout />
+//                     <RegisterLayout />
+
+//                     {/* <div
+//                         className={
+//                             signUp
+//                                 ? "login-screens signup-form active"
+//                                 : "login-screens signin-form"
+//                         }
+//                     >
+//                         <div className="title">Create Account</div>
+//                         <form onSubmit={handleSubmit}>
+//                             {inputsSignUp &&
+//                                 inputsSignUp.map((input) => (
+//                                     <div key={input.name}>
+//                                         <label htmlFor={input.name}>
+//                                             {input.label}
+//                                         </label>
+//                                         <input
+//                                             type={input.type}
+//                                             name={input.name}
+//                                             placeholder={input.placeholder}
+//                                             onBlur={handleBlur}
+//                                             onChange={handleChange}
+//                                             required={input.required}
+//                                             value={value}
+//                                         />
+//                                     </div>
+//                                 ))}
+
+//                             {(errors.name && <p>{errors.name}</p>) ||
+//                                 (errors.email && <p>{errors.email}</p>)}
+
+//                             <div href="#">Forgot your password?</div>
+
+//                             <input
+//                                 type="submit"
+//                                 value="Enviar"
+//                                 onClick={handleSubmit}
+//                             />
+//                         </form>
+//                     </div> */}
+//                 </div>
+
+//                 <div className="login-screens signin">
+//                     <div>SIGN IN</div>
+//                     <div href="#">Si ya tienes una cuenta</div>
+//                     <button onClick={handleClick}>Sigin In</button>
+//                 </div>
+
+//                 <div className="login-screens signup">
+//                     <div>REGISTER</div>
+//                     <div href="#">Crea tu cuenta</div>
+//                     <button onClick={handleClick}>Sigin up</button>
+//                 </div>
+//             </div>
+//             <div onClick={handleClick}> x </div>
+//         </div>
+//     );
+// };

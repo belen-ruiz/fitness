@@ -1,8 +1,6 @@
 const initialForm = {
     name: "",
     email: "",
-    subject: "",
-    comments: "",
   };
 
 const validationsForm = (form) => {
@@ -19,15 +17,7 @@ const validationsForm = (form) => {
       errors.email = "El campo 'Email' es requerido";
     } else if (!regexEmail.test(form.email.trim())) {
             errors.email = "El campo 'Email' es incorrecto";
-    } else if (!form.subject.trim()) {
-      errors.subject = "El campo 'Asunto a tratar' es requerido";
-    } else if (!form.comments.trim()) {
-      errors.comments = "El campo 'Comentarios' es requerido";
-    } else if (!regexComments.test(form.comments.trim())) {
-      errors.comments =
-        "El campo 'Comentarios' debe tener entre 10 y 255 caracteres";
-    }
-  
+    }   
     return errors;
   };
 

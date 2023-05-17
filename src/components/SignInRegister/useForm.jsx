@@ -6,6 +6,10 @@ export const useForm = (initialForm, validateForm) => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
+  const [signIn, setSignIn] = useState(false);
+  const [signUp, setSignUp] = useState(false);
+  const [value, setValue] = useState();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
