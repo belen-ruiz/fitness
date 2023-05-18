@@ -3,17 +3,20 @@ import { BrowserRouter } from "react-router-dom";
 import "./app.css"
 import { DataProvider } from "./context/DataProvider";
 import { SearchProvider } from "./context/SearchProvider";
+import { SearchProvider } from "./context/SearchProvider";
 
 
 
 function App() {
   return (
     <BrowserRouter>
-    <DataProvider>
-    <SearchProvider>      
-      <Router />
-    </SearchProvider>       
-    </DataProvider>
+      <AuthContext>
+        <DataProvider>
+          <SearchProvider>      
+            <Router />
+          </SearchProvider>       
+        </DataProvider>
+      </AuthContext>
     </BrowserRouter>
   );
 }

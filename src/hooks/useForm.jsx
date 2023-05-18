@@ -11,8 +11,7 @@ export const useForm = (initialForm, validateForm) => {
   const [value, setValue] = useState();
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = ({target: {name, value}}) => {
     setErrors(validateForm(form));
     setForm({
       ...form,

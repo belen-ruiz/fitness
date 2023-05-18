@@ -1,9 +1,9 @@
 import { CloseRounded } from '@mui/icons-material';
 import SearchIcon from "@mui/icons-material/Search";
-import {exerciseOp, fetchData} from "../hooks/fetchData";
-import { Results } from '../pages/Results';
+import {exerciseOp, fetchData} from "../../hooks/fetchData";
+import { Results } from '../../pages/Results';
 import { useContext, useState, useEffect, createContext } from "react";
-import { useSearchContext } from './SearchProvider';
+import { useSearchContext } from '../../context/SearchProvider';
 
 
 export const SearchBar = () => {
