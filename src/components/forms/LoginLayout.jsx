@@ -2,8 +2,9 @@ import { useForm } from "../../hooks/useForm";
 import { initialForm, validationsForm } from "./formData";
 import { inputsSignIn, inputsSignUp } from "./inputs";
 import { useState } from "react";
-import { RegisterLayout } from "./RegisterLayout"
-import { SignInLayout } from "./SignInLayout"
+import { InitialRegister, RegisterLayout } from "./RegisterLayout"
+import { InitialSignIn, SignInLayout } from "./SignInLayout"
+import { useAuthContext } from "../../context/AuthProvider";
 
 export const LoginContainer = () => {
     const [signIn, setSignIn] = useState(false);
@@ -15,52 +16,36 @@ export const LoginContainer = () => {
     };
 
     const {
-        form,
+        user,
         errors,
-        loading,
-        response,
         handleChange,
         handleBlur,
         handleSubmit,
-    } = useForm(initialForm, validationsForm);
+    } = useAuthContext(initialForm, validationsForm);
 
     return (
         <div className="container-login">
             <div className="screen welcome">
                 <div className="screen login">
-                    
-
-                    <SignInLayout form={form}
+                    <SignInLayout   user={user}
                                     signIn={signIn}
                                     errors={errors}
-                                    loading={loading}
-                                    response={response}
                                     handleChange={handleChange}
                                     handleBlur={handleBlur}
                                     handleSubmit={handleSubmit}
                                     />
-                    <RegisterLayout form={form}
+                    <RegisterLayout user={user}
                                     signUp={signUp}
                                     errors={errors}
-                                    loading={loading}
-                                    response={response}
                                     handleChange={handleChange}
                                     handleBlur={handleBlur}
                                     handleSubmit={handleSubmit}
                                     />
                 </div>
 
-                <div className="login-screens signin">
-                    <div>SIGN IN</div>
-                    <div href="#">Si ya tienes una cuenta</div>
-                    <button onClick={handleClick}>Sigin In</button>
-                </div>
+                <InitialSignIn />
 
-                <div className="login-screens signup">
-                    <div>REGISTER</div>
-                    <div href="#">Crea tu cuenta</div>
-                    <button onClick={handleClick}>Sigin up</button>
-                </div>
+                <InitialRegister />
             </div>
             <div onClick={handleClick}> x </div>
         </div>

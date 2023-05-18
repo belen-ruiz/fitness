@@ -3,7 +3,7 @@ import { inputsSignUp } from "./inputs";
 
 
 
-export const RegisterLayout = ({
+const RegisterLayout = ({
     form,
     signUp,
     value,
@@ -48,3 +48,17 @@ export const RegisterLayout = ({
         </div>
     );
 };
+
+const InitialRegister = () => {
+    return(
+    <>
+        <div className="login-screens signup">
+            <div>REGISTER</div>
+            <div href="#">Crea tu cuenta</div>
+            <button onClick={handleClick}>Sigin up</button>
+        </div>
+    </>
+    )
+}
+
+export {RegisterLayout, InitialRegister}

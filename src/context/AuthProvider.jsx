@@ -1,5 +1,7 @@
 import React, { createContext } from 'react';
 import { initialForm, validateForm } from "../components/forms/formData.js";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase"
 
 
 
@@ -9,7 +11,8 @@ export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(initialForm, validateForm)
 
-    const signUp = (email, password) =>{
+    const signUp = (auth, email, password) =>{
+        createUserWithEmailAndPassword(auth, email, password)
         console.log(email, password)
       }
       
