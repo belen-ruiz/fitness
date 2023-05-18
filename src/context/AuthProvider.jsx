@@ -1,8 +1,7 @@
-import React, { createContext } from 'react';
-import { initialForm, validateForm } from "../components/forms/formData.js";
+import React, { createContext, useContext, useState } from 'react';
+import { initialForm, validateForm } from "../utils/UserData";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../utils/firebase"
-
+import { Auth } from "../utils/firebase"
 
 
 const AuthContext = createContext()
@@ -10,10 +9,11 @@ export const useAuthContext = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(initialForm, validateForm)
+    const [errors, setErrors] = useState()
 
-    const signUp = (auth, email, password) =>{
-        createUserWithEmailAndPassword(auth, email, password)
-        console.log(email, password)
+    const signUp = (Auth, user, email, password) =>{
+        createUserWithEmailAndPassword(Auth, user, email, password)
+        console.log(Auth, user, email, password)
       }
       
     const handleChange = ({target: {name, value}}) => {

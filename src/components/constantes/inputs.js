@@ -12,7 +12,7 @@ const inputsSignIn = [
     {
       label:"E-mail",
       type: "email",
-      name: "email",
+      name: "emaill",
       placeholder: "Escribe tu email",
       //value:`${form.email}`,
       required: true,
