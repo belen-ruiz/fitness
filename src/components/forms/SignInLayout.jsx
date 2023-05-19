@@ -40,8 +40,8 @@ const SignInLayout = ({
                             </div>
                         ))}
             
-                    {(errors.name && <p>{errors.name}</p>) ||
-                        (errors.email && <p>{errors.email}</p>)}
+                    {/* {(errors.name && <p>{errors.name}</p>) ||
+                        (errors.email && <p>{errors.email}</p>)} */}
             
                     <div href="#">Forgot your password?</div>
             

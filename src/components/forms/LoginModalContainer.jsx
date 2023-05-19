@@ -3,12 +3,11 @@ import { useModal, Modal } from "../../hooks/useModal";
 import { LoginLayout } from "./LoginLayout"
 
 export const LoginModalContainer = () => {
-  const [isOpenModal1, closeModal1] = useModal(false);
 
   return (
-    <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
+    <>
       <LoginLayout />        
-    </Modal> 
+    </> 
   )
 }
 

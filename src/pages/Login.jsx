@@ -17,8 +17,8 @@ import { LoginModalContainer } from "../components/forms/LoginModalContainer"
 
 export const Login = () => {
   return (
-    <>
+    <div>
           <LoginModalContainer />
-    </>
+    </div>
   )
 }

@@ -5,7 +5,7 @@ import { Movies } from '../pages/Movies'
 import { Results } from '../pages/Results'
 import { Series } from '../pages/Series'
 import { ItemDetail } from '../pages/ItemDetail'
-import { Access, Login } from '../pages/Login'
+import { Login } from '../pages/Login'
 
 import { useDataContext } from "../context/DataProvider"
 
