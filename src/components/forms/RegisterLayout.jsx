@@ -1,5 +1,5 @@
 import React from "react";
-import { inputsSignUp } from "./inputs";
+import { inputsSignUp } from "../constantes/inputs";
 
 
 
@@ -10,6 +10,7 @@ const RegisterLayout = ({
     errors,
     loading,
     response,
+    handleClick,
     handleChange,
     handleBlur,
     handleSubmit,
@@ -49,7 +50,7 @@ const RegisterLayout = ({
     );
 };
 
-const InitialRegister = () => {
+const InitialRegister = ({ handleClick }) => {
     return(
     <>
         <div className="login-screens signup">

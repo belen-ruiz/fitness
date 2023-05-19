@@ -1,5 +1,5 @@
 import React from "react";
-import { inputsSignIn } from "./inputs";
+import { inputsSignIn } from "../constantes/inputs";
 
 
 const SignInLayout = ({
@@ -52,7 +52,7 @@ const SignInLayout = ({
     );
 };
 
-const InitialSignIn = () => {
+const InitialSignIn = ({handleClick}) => {
     return(
     <div className="login-screens signin">
     <div>SIGN IN</div>

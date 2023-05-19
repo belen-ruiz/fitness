@@ -1,8 +1,7 @@
 import React from 'react'
 import { Footer } from '../components/footer/Footer'
 import { NavBar } from '../components/navBar/NavBar'
-//import { LoginContainer } from '../components/forms/inputs'
-
+import { LoginModalContainer } from "../components/forms/LoginModalContainer"
 // export const Login = () => {
 //   return (
 //     <div>
@@ -19,7 +18,7 @@ import { NavBar } from '../components/navBar/NavBar'
 export const Login = () => {
   return (
     <>
-          {/* <LoginContainer /> */}
+          <LoginModalContainer />
     </>
   )
 }

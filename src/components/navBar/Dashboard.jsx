@@ -30,11 +30,13 @@ const Notifications = () => {
 }
 
 const Profile = () => {
-  const [ openModal1 ] = useModal(false);
+  const [ setIsOpen ] = useModal(false);
+
+  const openModal = () => console.log("ok");
 
     return (
       <>
-        <div onClick={openModal1}>
+        <div onClick={openModal}>
           <Person/>
         </div>
       </>

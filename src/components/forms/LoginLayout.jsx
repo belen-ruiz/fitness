@@ -1,12 +1,10 @@
-import { useForm } from "../../hooks/useForm";
-import { initialForm, validationsForm } from "./formData";
-import { inputsSignIn, inputsSignUp } from "./inputs";
+import { initialForm, validateForm } from "../../utils/UserData";
 import { useState } from "react";
 import { InitialRegister, RegisterLayout } from "./RegisterLayout"
 import { InitialSignIn, SignInLayout } from "./SignInLayout"
 import { useAuthContext } from "../../context/AuthProvider";
 
-export const LoginContainer = () => {
+export const LoginLayout = () => {
     const [signIn, setSignIn] = useState(false);
     const [signUp, setSignUp] = useState(false);
 
@@ -21,7 +19,7 @@ export const LoginContainer = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-    } = useAuthContext(initialForm, validationsForm);
+    } = useAuthContext(initialForm, validateForm);
 
     return (
         <div className="container-login">
@@ -33,6 +31,7 @@ export const LoginContainer = () => {
                                     handleChange={handleChange}
                                     handleBlur={handleBlur}
                                     handleSubmit={handleSubmit}
+                                    
                                     />
                     <RegisterLayout user={user}
                                     signUp={signUp}
@@ -43,9 +42,9 @@ export const LoginContainer = () => {
                                     />
                 </div>
 
-                <InitialSignIn />
+                <InitialSignIn onClick={handleClick}/>
 
-                <InitialRegister />
+                <InitialRegister onClick={handleClick}/>
             </div>
             <div onClick={handleClick}> x </div>
         </div>

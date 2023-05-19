@@ -1,9 +1,8 @@
 import React from 'react'
-import { Login } from "./LoginLayout"
 import { useModal, Modal } from "../../hooks/useModal";
 import { LoginLayout } from "./LoginLayout"
 
-export const LoginContainer = () => {
+export const LoginModalContainer = () => {
   const [isOpenModal1, closeModal1] = useModal(false);
 
   return (
