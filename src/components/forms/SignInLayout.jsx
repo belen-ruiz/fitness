@@ -52,12 +52,12 @@ const SignInLayout = ({
     );
 };
 
-const InitialSignIn = ({handleClick}) => {
+const InitialSignIn = ({handleClickIn}) => {
     return(
     <div className="login-screens signin">
     <div>SIGN IN</div>
     <div href="#">Si ya tienes una cuenta</div>
-    <button onClick={handleClick}>Sigin In</button>
+    <button onClick={handleClickIn}>Sigin In</button>
     </div>)
 }
 

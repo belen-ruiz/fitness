@@ -10,8 +10,22 @@ export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(initialForm, validateForm)
     const [errors, setErrors] = useState()
+    const [signIn, setSignIn] = useState(false);
+    const [signUp, setSignUp] = useState(false);
 
-    const signUp = (Auth, user, email, password) =>{
+    const handleClickIn = () => {
+      console.log("in")
+      setSignIn(!signIn);
+      setSignUp(false);
+    };
+    
+    const handleClickUp = () => {
+      console.log("up")
+        setSignIn(!signIn);
+        setSignUp(false);
+    };
+
+    const signingUp = (Auth, user, email, password) =>{
         createUserWithEmailAndPassword(Auth, user, email, password)
         console.log(Auth, user, email, password)
       }
@@ -45,6 +59,9 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
         value={{
+            signingUp,
+            handleClickIn,
+            handleClickUp,
             handleChange,
             handleBlur,
             handleSubmit,

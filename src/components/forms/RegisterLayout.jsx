@@ -10,7 +10,6 @@ const RegisterLayout = ({
     errors,
     loading,
     response,
-    handleClick,
     handleChange,
     handleBlur,
     handleSubmit,
@@ -50,13 +49,13 @@ const RegisterLayout = ({
     );
 };
 
-const InitialRegister = ({ handleClick }) => {
+const InitialRegister = ({ handleClickUp }) => {
     return(
     <>
         <div className="login-screens signup">
             <div>REGISTER</div>
             <div href="#">Crea tu cuenta</div>
-            <button onClick={handleClick}>Sigin up</button>
+            <button onClick={handleClickUp}>Sigin up</button>
         </div>
     </>
     )

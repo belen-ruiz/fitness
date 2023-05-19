@@ -5,17 +5,14 @@ import { InitialSignIn, SignInLayout } from "./SignInLayout"
 import { useAuthContext } from "../../context/AuthProvider";
 
 export const LoginLayout = () => {
-    const [signIn, setSignIn] = useState(false);
-    const [signUp, setSignUp] = useState(false);
-
-    const handleClick = () => {
-        setSignIn(!signIn);
-        setSignUp(!signUp);
-    };
 
     const {
         user,
         errors,
+        signIn,
+        signUp,
+        handleClickIn,
+        handleClickUp,
         handleChange,
         handleBlur,
         handleSubmit,
@@ -42,11 +39,10 @@ export const LoginLayout = () => {
                                     />
                 </div>
 
-                <InitialSignIn onClick={handleClick}/>
+                <InitialSignIn handleClickIn={handleClickIn}/>
 
-                <InitialRegister onClick={handleClick}/>
+                <InitialRegister handleClickUp={handleClickUp}/>
             </div>
-            <div onClick={handleClick}> x </div>
         </div>
     );
 }
