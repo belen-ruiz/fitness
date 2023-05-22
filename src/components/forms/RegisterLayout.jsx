@@ -2,6 +2,7 @@ import React from "react";
 import { GithubLoginButton } from "react-social-login-buttons";
 import { GoogleLoginButton } from "react-social-login-buttons";
 import { LinkedInLoginButton } from "react-social-login-buttons";
+import { useAuthContext } from "../../context/AuthProvider";
 import { inputsSignUp } from "../constantes/inputs";
 
 const RegexErrors = () => {
@@ -24,14 +25,37 @@ const InitialRegister = ({ handleClickUp }) => {
     );
 };
 
+const LoginSocialMedia = () => {
+    const { googleLogin } = useAuthContext()
+
+    const handleGoogleLogin = async () => {
+        await googleLogin()
+    }
+
+    return (
+        <>
+        <div>
+                <div>
+                    <GoogleLoginButton onClick={handleGoogleLogin}/>
+                </div>
+                <div>
+                    
+                    <LinkedInLoginButton />
+                </div>
+                <div>
+                    
+                    <GithubLoginButton />
+                </div>
+            </div></>
+    )
+}
+
 const RegisterForm = ({ handleChange, handleBlur, handleSubmit }) => {
     
     return (
         <div>
             <div className="title">Join Us!</div>
-
             <div className="subtitle">Create your new account</div>
-
             <form onSubmit={handleSubmit}>
                 {inputsSignUp &&
                     inputsSignUp.map((input) => (
@@ -55,19 +79,7 @@ const RegisterForm = ({ handleChange, handleBlur, handleSubmit }) => {
 
             <div>----or-----</div>
 
-            <div>
-                <div>
-                    <GoogleLoginButton onClick={handleGoogleLogin}/>
-                </div>
-                <div>
-                    
-                    <LinkedInLoginButton />
-                </div>
-                <div>
-                    
-                    <GithubLoginButton />
-                </div>
-            </div>
+            <LoginSocialMedia />
         </div>
     );
 };

@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
     const googleLogin = () => {
       const googleProvider = new GoogleAuthProvider()
-      signInWithPopup(auth, googleProvider)
+      return signInWithPopup(auth, googleProvider)
   }
 
     useEffect(() => {
