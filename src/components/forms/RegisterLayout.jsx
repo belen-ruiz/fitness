@@ -1,10 +1,14 @@
 import React from "react";
+import { GithubLoginButton } from "react-social-login-buttons";
+import { GoogleLoginButton } from "react-social-login-buttons";
+import { LinkedInLoginButton } from "react-social-login-buttons";
 import { inputsSignUp } from "../constantes/inputs";
 
 
 
 const RegisterLayout = ({
     form,
+    newUser,
     signUp,
     value,
     errors,
@@ -16,11 +20,14 @@ const RegisterLayout = ({
 }) => {
     
     return (
-        <div className={ signUp
+            <div className={ signUp
                     ? "login-screens signup-form active"
                     : "login-screens signin-form"}>
 
-            <div className="title">Create Account</div>
+            <div className="title">Join Us!</div>
+
+            <div className="subtitle">Create your new account</div>
+
             <form onSubmit={handleSubmit}>
                 {inputsSignUp &&
                     inputsSignUp.map((input) => (
@@ -41,10 +48,17 @@ const RegisterLayout = ({
                 {/* {(errors.name && <p>{errors.name}</p>) ||
                     (errors.email && <p>{errors.email}</p>)} */}
 
-                <div href="#">Forgot your password?</div>
 
                 <input type="submit" value="Enviar" onClick={handleSubmit} />
             </form>
+
+            <div>----or-----</div>
+
+            <div>
+                <div> <GoogleLoginButton /> </div>
+                <div> <LinkedInLoginButton /> </div>
+                <div> <GithubLoginButton /> </div>
+            </div>
         </div>
     );
 };

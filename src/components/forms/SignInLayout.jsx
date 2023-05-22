@@ -22,7 +22,8 @@ const SignInLayout = ({
                         : "login-screens signin-form"
                 }
             >
-                <div className="title">Sign in</div>
+                <div className="title">Welcome back!</div>
+                <div className="subtitle">Complete with your account details</div>
                 <form onSubmit={handleSubmit}>
                     {inputsSignIn &&
                         inputsSignIn.map((input) => (

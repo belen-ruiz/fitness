@@ -4,6 +4,12 @@ const initialForm = {
     password: "",
   };
 
+const newForm = {
+    name: "",
+    email: "",
+    password: "",
+  };
+
 const validateForm = (user) => {
     const errors = {};
     const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
@@ -18,8 +24,10 @@ const validateForm = (user) => {
       errors.email = "El campo 'Email' es requerido";
     } else if (!regexEmail.test(user.email.trim())) {
             errors.email = "El campo 'Email' es incorrecto";
-    }   
+    } else if (!regexName.test(user.username.trim())) {
+            errors.username = "El campo 'Nombre' sólo acepta letras y espacios en blanco";
+    }  
     return errors;
   };
 
-  export { initialForm, validateForm }
+  export { initialForm, newForm, validateForm }

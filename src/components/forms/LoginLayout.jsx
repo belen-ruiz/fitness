@@ -1,4 +1,4 @@
-import { initialForm, validateForm } from "../../utils/UserData";
+import { initialForm, newForm, validateForm } from "../../utils/UserData";
 import { useState } from "react";
 import { InitialRegister, RegisterLayout } from "./RegisterLayout"
 import { InitialSignIn, SignInLayout } from "./SignInLayout"
@@ -8,40 +8,39 @@ export const LoginLayout = () => {
 
     const {
         user,
+        newUser,
         errors,
         signIn,
         signUp,
         handleClickIn,
         handleClickUp,
         handleChange,
+        handleChangeSignIn,
         handleBlur,
         handleSubmit,
-    } = useAuthContext(initialForm, validateForm);
+    } = useAuthContext(newForm, validateForm);
 
     return (
         <div className="container-login">
             <div className="screen welcome">
-                <div className="screen login">
-                    <SignInLayout   user={user}
+                <SignInLayout   user={user}
                                     signIn={signIn}
                                     errors={errors}
-                                    handleChange={handleChange}
+                                    handleChange={handleChangeSignIn}
                                     handleBlur={handleBlur}
                                     handleSubmit={handleSubmit}
-                                    
                                     />
-                    <RegisterLayout user={user}
+                <RegisterLayout newUser={newUser}
                                     signUp={signUp}
                                     errors={errors}
                                     handleChange={handleChange}
                                     handleBlur={handleBlur}
                                     handleSubmit={handleSubmit}
                                     />
-                </div>
 
-                <InitialSignIn handleClickIn={handleClickIn}/>
+                <InitialSignIn handleClick={handleClickIn}/>
 
-                <InitialRegister handleClickUp={handleClickUp}/>
+                <InitialRegister handleClick={handleClickUp}/>
             </div>
         </div>
     );

@@ -10,34 +10,28 @@ const inputsSignIn = [
       error: "user",
     },
     {
-      label:"E-mail",
-      type: "email",
-      name: "emaill",
-      placeholder: "Escribe tu email",
+      label:"Password",
+      type: "password",
+      name: "password",
+      placeholder: "Escribe tu contraseña",
       //value:`${form.email}`,
       required: true,
       //error: `${errors.email}`,
-      error: "email",
+      error: "password",
     },
-    {
-      label: "Acepto terminos y condiciones",
-      type: "checkbox",
-      name: "terms",
-      required: true,
-    }
   ];
 
 const inputsSignUp = [
-    {
-      label:"Usuario",
-      type: "text",
-      name: "user",
-      placeholder: "Escribe tu Usuario",
-      //value:`${form.name}`,
-      required: true,
-      //error: `${errors.name}`,
-      error: "user",
-    },
+    // {
+    //   label:"Usuario",
+    //   type: "text",
+    //   name: "username",
+    //   placeholder: "Escribe tu Usuario",
+    //   //value:`${form.name}`,
+    //   required: true,
+    //   //error: `${errors.name}`,
+    //   error: "user",
+    // },
     {
       label:"E-mail",
       type: "email",
@@ -48,6 +42,22 @@ const inputsSignUp = [
       //error: `${errors.email}`,
       error: "email",
     },
+    {
+      label:"Password",
+      type: "password",
+      name: "password",
+      placeholder: "Escribe tu contraseña",
+      //value:`${form.email}`,
+      required: true,
+      //error: `${errors.email}`,
+      error: "password",
+    },
+    // {
+    //   label: "Acepto terminos y condiciones",
+    //   type: "checkbox",
+    //   name: "terms",
+    //   required: true,
+    // }
   ];
   
 
