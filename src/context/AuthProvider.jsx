@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { initialForm, validateForm, newForm } from "../utils/UserData";
+import { initialForm, validateForm } from "../utils/UserData";
 import { Navigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";

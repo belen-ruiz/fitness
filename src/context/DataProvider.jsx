@@ -70,18 +70,18 @@ const handleSelectGenre = 1
 
 
   /////filtrado ???
-  useEffect(() => {
+  // useEffect(() => {
 
-    const filterTvshows = tvshows.map((tvshow) => {
-      const match = tvshow.genre_ids.filter((id) => id == currentGenreIds) 
-      console.log(match)
-    })
+  //   const filterTvshows = tvshows.map((tvshow) => {
+  //     const match = tvshow.genre_ids.filter((id) => id == currentGenreIds) 
+  //     console.log(match)
+  //   })
 
-      console.log(filterTvshows)  //array completo sin filtar
+  //     console.log(filterTvshows)  //array completo sin filtar
 
-      setTv(filterTvshows)
-      console.log(tv) 
-  }, [currentGenreIds])
+  //     setTv(filterTvshows)
+  //     console.log(tv) 
+  // }, [currentGenreIds])
   
 
   useEffect(() => {

@@ -71,8 +71,8 @@ export const SearchProvider = ({ children }) => {
        }
     }, [search])
 
-    console.log(search)
-    console.log(results)
+    // console.log(search)
+    // console.log(results)
         
   return (
     <SearchContext.Provider
