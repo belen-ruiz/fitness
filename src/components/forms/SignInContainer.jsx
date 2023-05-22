@@ -7,18 +7,15 @@ import { SignInLayout } from "./SignInLayout";
 
 export const SignInContainer = ({ signIn, handleClickIn }) => {
 
-    const [user, setUser] = useState(initialForm, validateForm);
     const [errors, setErrors] = useState();
-
-    const { login } = useAuthContext()
+    const { login, user, setUser } = useAuthContext()
 
     const handleChange = ({ target: { name, value } }) => {
-        setErrors(validateForm(user));
+        //setErrors(validateForm(user));
         setUser({
             ...user,
             [name]: value,
         });
-        console.log(user);
     };
 
     const handleBlur = (e) => {
@@ -31,7 +28,7 @@ export const SignInContainer = ({ signIn, handleClickIn }) => {
         e.preventDefault();
         try {
             await login(user.email, user.password)
-            console.log("uploadSucceded");
+            console.log("Login Succeded");
         } catch (error) {
             console.log(error.message)
             setErrors(error.message)

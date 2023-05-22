@@ -2,28 +2,26 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import React, { useState } from "react";
 import { RegisterLayout } from "./RegisterLayout";
-import { validateForm, newForm } from "../../utils/UserData";
+import { validateForm, initialForm } from "../../utils/UserData";
 import { Navigate } from 'react-router-dom';
 import { useAuthContext } from "../../context/AuthProvider";
 
 export const RegisterContainer = ({ signUp, handleClickUp }) => {
-    const [newUser, setNewUser] = useState(newForm, validateForm);
     const [errors, setErrors] = useState();
 
-    const { signingUp } = useAuthContext()
+    const { signingUp, user, setUser } = useAuthContext()
 
     const handleChange = ({ target: { name, value } }) => {
-        setErrors(validateForm(newUser));
-        setNewUser({
-            ...newUser,
+        setErrors(validateForm(user));
+        setUser({
+            ...user,
             [name]: value,
         });
-        console.log(newUser);
     };
 
     const handleBlur = (e) => {
         e.stopPropagation();
-        setErrors(validateForm(newUser));
+        setErrors(validateForm(user));
         handleChange(e);
     };
 
@@ -31,13 +29,13 @@ export const RegisterContainer = ({ signUp, handleClickUp }) => {
         e.preventDefault();
 
         try {
-            signingUp(newUser.email, newUser.password);
+            signingUp(user.email, user.password);
             console.log("uploadSucceded");
         } catch (error) {
             setErrors(error.message)
             console.log(error.message);
         }
-        setNewUser(newForm);
+        setUser(initialForm);
     };
 
     return (
