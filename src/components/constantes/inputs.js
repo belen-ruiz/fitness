@@ -33,6 +33,16 @@ const inputsSignUp = [
     //   error: "user",
     // },
     {
+      label:"Username",
+      type: "text",
+      name: "displayName",
+      placeholder: "Escribe tu username",
+      //value:`${form.email}`,
+      required: true,
+      //error: `${errors.email}`,
+      //error: "name",
+    },
+    {
       label:"E-mail",
       type: "email",
       name: "email",
