@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { initialForm, validateForm } from "../utils/UserData";
 import { Navigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
 
 
@@ -18,6 +18,11 @@ export const AuthProvider = ({ children }) => {
       signInWithEmailAndPassword(auth, email, password)
     }
 
+    const googleLogin = () => {
+      const googleProvider = new GoogleAuthProvider()
+      signInWithPopup(auth, googleProvider)
+  }
+
     useEffect(() => {
       onAuthStateChanged(auth, currentUser => {
         setUser(currentUser)
@@ -32,7 +37,8 @@ export const AuthProvider = ({ children }) => {
             user,
             setUser,
             signingUp,
-            login
+            login,
+            googleLogin
         }}
     >
         { children }

@@ -25,6 +25,7 @@ const InitialRegister = ({ handleClickUp }) => {
 };
 
 const RegisterForm = ({ handleChange, handleBlur, handleSubmit }) => {
+    
     return (
         <div>
             <div className="title">Join Us!</div>
@@ -56,7 +57,7 @@ const RegisterForm = ({ handleChange, handleBlur, handleSubmit }) => {
 
             <div>
                 <div>
-                    <GoogleLoginButton />
+                    <GoogleLoginButton onClick={handleGoogleLogin}/>
                 </div>
                 <div>
                     
