@@ -3,45 +3,32 @@ import { useState } from "react";
 import { InitialRegister, RegisterLayout } from "./RegisterLayout"
 import { InitialSignIn, SignInLayout } from "./SignInLayout"
 import { useAuthContext } from "../../context/AuthProvider";
+import { RegisterContainer } from "./RegisterContainer";
+import { SignInContainer } from "./SignInContainer";
 
 export const LoginLayout = () => {
+    
+    const [signIn, setSignIn] = useState(false);
+    const [signUp, setSignUp] = useState(false);
+    
+    const handleClickIn = () => {
+      setSignIn(!signIn);
+      console.log("entrar")
+    };
+    
+    const handleClickUp = () => {
+      setSignUp(!signUp);
+      console.log("suscribirse")
 
-    const {
-        user,
-        newUser,
-        errors,
-        signIn,
-        signUp,
-        handleClickIn,
-        handleClickUp,
-        handleChange,
-        handleChangeSignIn,
-        handleBlur,
-        handleSubmit,
-    } = useAuthContext(newForm, validateForm);
+    };
 
     return (
         <div className="container-login">
-            <div className="screen welcome">
-                <SignInLayout   user={user}
-                                    signIn={signIn}
-                                    errors={errors}
-                                    handleChange={handleChangeSignIn}
-                                    handleBlur={handleBlur}
-                                    handleSubmit={handleSubmit}
-                                    />
-                <RegisterLayout newUser={newUser}
-                                    signUp={signUp}
-                                    errors={errors}
-                                    handleChange={handleChange}
-                                    handleBlur={handleBlur}
-                                    handleSubmit={handleSubmit}
-                                    />
+                <SignInContainer signIn={signIn}
+                handleClickIn={handleClickIn}/>
 
-                <InitialSignIn handleClick={handleClickIn}/>
-
-                <InitialRegister handleClick={handleClickUp}/>
-            </div>
+                <RegisterContainer signUp={signUp}
+                handleClickUp={handleClickUp}/>
         </div>
     );
 }

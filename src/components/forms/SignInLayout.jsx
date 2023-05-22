@@ -3,25 +3,18 @@ import { inputsSignIn } from "../constantes/inputs";
 
 
 const SignInLayout = ({
-  form,
   signIn,
   value,
   errors,
-  loading,
-  response,
   handleChange,
   handleBlur,
   handleSubmit,
+  handleClickIn
 }) => {
     return (
         <>
-            <div
-                className={
-                    signIn
-                        ? "login-screens signin-form active"
-                        : "login-screens signin-form"
-                }
-            >
+            { signIn ? 
+            <div>
                 <div className="title">Welcome back!</div>
                 <div className="subtitle">Complete with your account details</div>
                 <form onSubmit={handleSubmit}>
@@ -49,17 +42,20 @@ const SignInLayout = ({
                     <input type="submit" value="Enviar" onClick={handleSubmit} />
                 </form>
             </div>
+            :
+            
+            <InitialSignIn handleClickIn={handleClickIn} />}
         </>
     );
 };
 
-const InitialSignIn = ({handleClickIn}) => {
+const InitialSignIn = ({ handleClickIn }) => {
     return(
-    <div className="login-screens signin">
+    <div className="">
     <div>SIGN IN</div>
     <div href="#">Si ya tienes una cuenta</div>
     <button onClick={handleClickIn}>Sigin In</button>
     </div>)
 }
 
-export {SignInLayout, InitialSignIn}
+export {SignInLayout}

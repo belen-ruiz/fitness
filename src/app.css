@@ -292,24 +292,9 @@ a.active .title-navbar {
     background-color: blanchedalmond;
     width: 200px;
     height: 300px;
-    z-index: 88;
 }
 
-.login-screens.signin-form{
-    z-index: 9;    
-}
 
-.login-screens.signin-form.active{
-    z-index: 99;    
-}
-
-.login-screens.signup-form{
-    z-index: 9;    
-}
-
-.login-screens.signup-form.active{
-    z-index: 99;    
-}
 
 .form{
     border: 1px solid green;
