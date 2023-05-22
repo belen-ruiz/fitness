@@ -4,7 +4,7 @@ import { validateForm, initialForm } from "../../utils/UserData";
 import { useAuthContext } from "../../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-export const RegisterContainer = ({ signUp, handleClickUp }) => {
+export const RegisterContainer = ({ signUp, handleClickUp, value }) => {
     const [errors, setErrors] = useState();
     const { signingUp, user, setUser } = useAuthContext()
     const navigate = useNavigate()
@@ -29,7 +29,7 @@ export const RegisterContainer = ({ signUp, handleClickUp }) => {
         try {
             signingUp(user.email, user.password);
             console.log("uploadSucceded");
-            navigate("/")
+            navigate(`/login/${user.displayName}`)
         } catch (error) {
             setErrors(error.message)
             console.log(error.message);
@@ -45,6 +45,7 @@ export const RegisterContainer = ({ signUp, handleClickUp }) => {
                 handleSubmit={handleSubmit}
                 signUp={signUp}
                 handleClickUp={handleClickUp}
+                value={value}
                 />
         </>);
 };

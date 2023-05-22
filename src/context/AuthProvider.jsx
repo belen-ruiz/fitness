@@ -8,8 +8,9 @@ import { auth } from "../utils/firebase";
 const AuthContext = createContext()
 export const useAuthContext = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(initialForm, validateForm);
-
+  const [user, setUser] = useState(initialForm, validateForm);
+  const [currUser, setCurrUser] = useState(initialForm, validateForm);
+  
     const signingUp = (email, password) => {
       createUserWithEmailAndPassword(auth, email, password);
     };
@@ -25,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
       onAuthStateChanged(auth, currentUser => {
-        setUser(currentUser)
+        setCurrUser(currentUser)
         console.log(currentUser)
       })
     }, [])

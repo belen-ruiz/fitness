@@ -50,7 +50,7 @@ const LoginSocialMedia = () => {
     )
 }
 
-const RegisterForm = ({ handleChange, handleBlur, handleSubmit }) => {
+const RegisterForm = ({ handleChange, handleBlur, handleSubmit, value }) => {
     
     return (
         <div>
@@ -68,6 +68,7 @@ const RegisterForm = ({ handleChange, handleBlur, handleSubmit }) => {
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 required={input.required}
+                                value={value}
                             />
                         </div>
                     ))}
@@ -90,6 +91,7 @@ export const RegisterLayout = ({
     handleBlur,
     handleSubmit,
     handleClickUp,
+    value
 }) => {
     return (
         <>
@@ -98,6 +100,7 @@ export const RegisterLayout = ({
                     handleChange={handleChange}
                     handleBlur={handleBlur}
                     handleSubmit={handleSubmit}
+                    value={value}
                 />
             ) : (
                 <InitialRegister handleClickUp={handleClickUp} />

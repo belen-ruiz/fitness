@@ -10,6 +10,8 @@ export const LoginLayout = () => {
     
     const [signIn, setSignIn] = useState(false);
     const [signUp, setSignUp] = useState(false);
+    const [value, setValue] = useState()
+
     
     const handleClickIn = () => {
       setSignIn(!signIn);
@@ -25,7 +27,8 @@ export const LoginLayout = () => {
     return (
         <div className="container-login">
                 <SignInContainer signIn={signIn}
-                handleClickIn={handleClickIn}/>
+                handleClickIn={handleClickIn}
+                value={value}/>
 
                 <RegisterContainer signUp={signUp}
                 handleClickUp={handleClickUp}/>
