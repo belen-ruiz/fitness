@@ -20,12 +20,12 @@ export const ItemDetail = () => {
   
   const { movie_id } = useParams([])
   
-  const api_key = `api_key=0c17a380a966eb856907e4b64bd5374a&language=en-US`
+  const API_KEY = `api_key=0c17a380a966eb856907e4b64bd5374a&language=en-US`
   const URL_KEY = `https://api.themoviedb.org/3/movie/${movie_id}`
-  const URL_MOVIE = `${URL_KEY}?${api_key}`
-  const URL_MOVIE_CREDITS = `${URL_KEY}/credits?${api_key}`
-  const URL_MOVIE_SIMILAR = `${URL_KEY}/similar?${api_key}`
-  const URL_MOVIE_VIDEOS = `${URL_KEY}/videos?${api_key}`
+  const URL_MOVIE = `${URL_KEY}?${API_KEY}`
+  const URL_MOVIE_CREDITS = `${URL_KEY}/credits?${API_KEY}`
+  const URL_MOVIE_SIMILAR = `${URL_KEY}/similar?${API_KEY}`
+  const URL_MOVIE_VIDEOS = `${URL_KEY}/videos?${API_KEY}`
 
   const fetchMovie = async () => {
       const movieDb = await fetchData(URL_MOVIE ,exerciseOp) 
