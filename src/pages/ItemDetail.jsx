@@ -5,6 +5,7 @@ import { Footer } from "../components/footer/Footer"
 import { useParams } from 'react-router-dom'
 import { fetchData, exerciseOp } from "../hooks/fetchData";
 import { HorizontalScrollBar } from "../components/items/Scroll"
+import { useDataContext } from '../context/DataProvider'
 
 //3
 //logica y mapa de item 
@@ -16,6 +17,7 @@ export const ItemDetail = () => {
     const [ cast, setCast ] = useState([])    
     const [ crew, setCrew ] = useState([])   
     const [ similarMovies, setSimilarMovies ] = useState([]) 
+    
     const { movie_id } = useParams([])
 
     useEffect(() => {
