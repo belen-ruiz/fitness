@@ -47,13 +47,16 @@ export const ItemDetail = () => {
   // }, [movie_id])
   
  const { movie, cast, crew, similarMovies, fetchMovieDb } = useDataContext()
+
  const { movie_id } = useParams([])
+ console.log(fetchMovieDb)
 
  useEffect(() => {
   setTimeout(() => {
-    fetchMovieDb()
+    const fetch = fetchMovieDb(movie_id)
+    fetch()
   }, 2000);
-}, [movie_id])
+}, [])
 
  console.log(movie)
   

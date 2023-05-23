@@ -6,8 +6,7 @@ import { fetchData, exerciseOp } from "../hooks/fetchData";
 const DataContext = createContext([]);
 export const useDataContext = () => useContext(DataContext);
 export const DataProvider = ({ children }) => {
-    const { movie_id } = useParams([])
-    console.log(movie_id)
+  const { movie_id } = []
 
     const [movies, setMovies] = useState([]);
     const [trendingTv, setTrendingTv] = useState([]);
@@ -79,7 +78,7 @@ export const DataProvider = ({ children }) => {
     const genIdsTv = genresTv.map((e) => e.id);
     const genNamesTv = genresTv.map((e) => e.name);
 
-    const fetchMovieDb = async () => {
+    const fetchMovieDb = async (movie_id) => {
       const movieDb = await fetchData(URL_MOVIEID ,exerciseOp) 
       const movieCredits = await fetchData(URL_MOVIE_CREDITS ,exerciseOp) 
       const movieSimilar = await fetchData(URL_MOVIE_SIMILAR ,exerciseOp) 
