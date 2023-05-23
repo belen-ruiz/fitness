@@ -6,13 +6,23 @@ import { useDataContext } from "../../context/DataProvider"
 
 export const ScrollContainer = () => {
 
-const { trendingTv, trendingMovies} = useDataContext()
+const { latestTv, latestMovies, trendingTv, trendingMovies} = useDataContext()
 
-//console.log(trendingTv)
+// console.log(trendingTv)
 // console.log(trendingMovies) ok
 
   return (
     <div className='container-page'>
+      <div>
+        <div className="title-sm">Top Rated Tv Shows</div>
+        { latestTv && <HorizontalScrollBar data={latestTv}/>}
+      </div>
+
+      <div>
+        <div className="title-sm">Top Rated Movies</div>
+        { latestMovies && <HorizontalScrollBar data={latestMovies}/>}
+      </div>
+
       <div>
         <div className="title-sm">Trending Tv Shows</div>
         { trendingTv && <HorizontalScrollBar data={trendingTv}/>}
@@ -20,7 +30,7 @@ const { trendingTv, trendingMovies} = useDataContext()
 
       <div>
         <div className="title-sm">Trending Movies</div>
-        { trendingMovies &&<HorizontalScrollBar data={trendingMovies}/>}
+        { trendingMovies && <HorizontalScrollBar data={trendingMovies}/>}
       </div>
     
     </div>

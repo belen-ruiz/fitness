@@ -11,6 +11,8 @@ export const DataProvider = ({ children }) => {
     const [tvshows, setTvshows] = useState([]);
     const [trendingTv, setTrendingTv] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
+    const [latestTv, setLatestTv] = useState([]);
+    const [latestMovies, setLatestMovies] = useState([]);
     const [imgMovies, setImgMovies] = useState("")
     const [genresMovie, setGenresMovie] = useState([])
     const [genresTv, setGenresTv] = useState([])
@@ -111,6 +113,32 @@ const handleSelectGenre = 1
   //console.log(trendingMovies)
 
   useEffect(() => {
+    const fecthLatestTv = async () => {
+        const url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${api_key}
+        `
+        const db = await fetchData(url ,exerciseOp) 
+        const dbResults = await db.results
+
+        setLatestTv([...dbResults])
+    }
+    fecthLatestTv()
+  }, [])
+  //console.log(trendingMovies)
+
+  useEffect(() => {
+    const fecthLatestMovies = async () => {
+        const url = `  https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}
+        `
+        const db = await fetchData(url ,exerciseOp) 
+        const dbResults = await db.results
+
+        setLatestMovies([...dbResults])
+    }
+    fecthLatestMovies()
+  }, [])
+  //console.log(latestMovies)
+
+  useEffect(() => {
     const fetchGenresMovie = async () => {
         const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=en-US`
         const db = await fetchData(url ,exerciseOp) 
@@ -146,7 +174,8 @@ const handleSelectGenre = 1
                 tvshows,
                 trendingTv,
                 trendingMovies,
-                imgMovies,
+                latestMovies,
+                latestTv,
                 genresMovie,
                 genresTv,
                 genIds,

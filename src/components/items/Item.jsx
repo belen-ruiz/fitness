@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 import { ItemBanner } from '../banner/ItemBanner'
-import { Details } from './Details'
+import { ItemDetails } from './ItemDetails'
 
 //4
 //devuelvo estilo del item 
-export const Item = ({ data }) => {
+export const Item = ({ data, cast, crew }) => {
   
 
   return (
-    <div className='container-page'>
+    <div>
         <div>
           <ItemBanner data={ data }/>
-          <Details data={ data }/>
+          <ItemDetails cast={ cast }  crew={ crew }/>
         </div>
     </div>
   )

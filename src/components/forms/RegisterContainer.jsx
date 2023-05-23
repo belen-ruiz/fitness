@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const RegisterContainer = ({ signUp, handleClickUp, value }) => {
     const [errors, setErrors] = useState();
-    const { signingUp, user, setUser } = useAuthContext()
+    const { signingUp, user, setUser, googleLogin } = useAuthContext()
     const navigate = useNavigate()
 
     const handleChange = ({ target: { name, value } }) => {
@@ -23,7 +23,7 @@ export const RegisterContainer = ({ signUp, handleClickUp, value }) => {
         handleChange(e);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
@@ -37,12 +37,24 @@ export const RegisterContainer = ({ signUp, handleClickUp, value }) => {
         setUser(initialForm);
     };
 
+
+    const handleGoogleLogin = async () => {
+        try {
+            await googleLogin();
+            navigate("/")
+            
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     return (
         <>
             <RegisterLayout 
                 handleChange={handleChange}
                 handleBlur={handleBlur}
                 handleSubmit={handleSubmit}
+                handleGoogleLogin={handleGoogleLogin}
                 signUp={signUp}
                 handleClickUp={handleClickUp}
                 value={value}

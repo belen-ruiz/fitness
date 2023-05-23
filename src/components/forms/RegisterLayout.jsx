@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { GithubLoginButton } from "react-social-login-buttons";
 import { GoogleLoginButton } from "react-social-login-buttons";
 import { LinkedInLoginButton } from "react-social-login-buttons";
@@ -25,13 +26,7 @@ const InitialRegister = ({ handleClickUp }) => {
     );
 };
 
-const LoginSocialMedia = () => {
-    const { googleLogin } = useAuthContext()
-
-    const handleGoogleLogin = async () => {
-        await googleLogin()
-    }
-
+const LoginSocialMedia = ({ handleGoogleLogin }) => {
     return (
         <>
         <div>
@@ -86,12 +81,13 @@ const RegisterForm = ({ handleChange, handleBlur, handleSubmit, value }) => {
 };
 
 export const RegisterLayout = ({
+    value,
     signUp,
-    handleChange,
     handleBlur,
     handleSubmit,
+    handleChange,
     handleClickUp,
-    value
+    handleGoogleLogin,
 }) => {
     return (
         <>
@@ -100,6 +96,7 @@ export const RegisterLayout = ({
                     handleChange={handleChange}
                     handleBlur={handleBlur}
                     handleSubmit={handleSubmit}
+                    handleGoogleLogin={handleGoogleLogin}
                     value={value}
                 />
             ) : (

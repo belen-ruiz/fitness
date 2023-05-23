@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
       onAuthStateChanged(auth, currentUser => {
         setCurrUser(currentUser)
-        console.log(currentUser)
+        //console.log(currentUser)
       })
     }, [])
     

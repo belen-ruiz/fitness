@@ -246,7 +246,6 @@ a.active .title-navbar {
 .poster{
     position: absolute;
     z-index: 999;
-
 }
 
 .poster:hover{
@@ -255,6 +254,13 @@ a.active .title-navbar {
 
 .poster-img{
     border-radius: 5px;
+}
+
+.poster-chip{
+    z-index: 9999;
+    top:0;
+    position: absolute;
+
 }
 
 .containter-item{

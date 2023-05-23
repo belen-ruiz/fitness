@@ -14,17 +14,17 @@ export const useSearchContext = () => useContext(SearchContext);
 export const SearchProvider = ({ children }) => {
     const [search, setSearch] = useState()
     const [results, setResults] = useState([])  
+    
     const [searchParams, setSearchParams] = useSearchParams()
-    const  {genre}  = useParams() 
     const {tvshows, setTvshows} = useDataContext()
-
     const navigate = useNavigate()
+
 
     const handleChange = (e) => {
       if (e.target.value) {
           setSearch(e.target.value.toLowerCase());
         } else {
-          setSearch("undefined");
+          setSearch("");
         }
     };  
     
