@@ -20,9 +20,9 @@ export const HorizontalScrollBar = ({ data })=> {
         allowScrollButtonsMobile
         aria-label="scrollable force tabs example"
       >
-        {data.map((tvshow) => (
-                <div className="item-box item-info" key={tvshow.id || tvshow}>
-                    {data && <ItemHome data={tvshow}/>}
+        {data.map((elem) => (
+                <div className="item-box item-info" key={elem.id || elem}>
+                    {elem && <ItemHome data={elem}/>}
                 </div>
             )
             )}

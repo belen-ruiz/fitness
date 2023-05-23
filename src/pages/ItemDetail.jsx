@@ -12,11 +12,11 @@ import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material'
 //logica y mapa de item 
 
 export const ItemDetail = () => {
-  const [ item, setItem ] =  useState([])
+  const [ movie, setMovie ] =  useState([])
   const [ cast, setCast ] = useState([])    
   const [ crew, setCrew ] = useState([])   
   const [ similarMovies, setSimilarMovies ] = useState([]) 
-  const [movieVideos, setMovieVideos] = useState([])
+  const [ movieVideos, setMovieVideos ] = useState([])
   
   const { movie_id } = useParams([])
   
@@ -33,7 +33,7 @@ export const ItemDetail = () => {
       const movieSimilar = await fetchData(URL_MOVIE_SIMILAR ,exerciseOp) 
       const movieVideos = await fetchData(URL_MOVIE_VIDEOS ,exerciseOp) 
       
-      setItem(movieDb)
+      setMovie(movieDb)
       setCast(movieCredits.cast)
       setCrew(movieCredits.crew)
       setSimilarMovies(movieSimilar.results)
@@ -52,14 +52,28 @@ export const ItemDetail = () => {
         <NavBar />
 
         <div className='container-page'>     
+          {movie &&
           <div>
-            <Item data={item} cast={cast} crew={crew}/>
-          </div>
+            <Item data={movie}/>
+          </div>}
 
+          {cast && 
+          <div>
+            <div className="title-sm">Cast</div>
+            <HorizontalScrollBar data={cast}/>
+          </div>  }
+
+          {crew && 
+          <div>
+            <div className="title-sm">Crew</div>
+            <HorizontalScrollBar data={crew}/>
+          </div>  }
+
+          {similarMovies && 
           <div>
             <div className="title-sm">Similar Movies</div>
-            { similarMovies && <HorizontalScrollBar data={similarMovies}/>}  
-          </div>        
+            <HorizontalScrollBar data={similarMovies}/>
+          </div>}        
         </div>
 
         <Footer />
