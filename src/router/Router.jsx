@@ -20,11 +20,6 @@ const allRoutes = () => {
             element: <Homee />
         },
         {
-            path:"/:id",
-            exact: true,
-            element: <ItemDetail />
-        },
-        {
             path:"/home",
             exact: true,
             element: <Homee />

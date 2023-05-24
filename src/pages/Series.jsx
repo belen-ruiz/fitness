@@ -1,47 +1,55 @@
-import React, { useState } from 'react'
-import { NavBar } from "../components/navBar/NavBar"
-import { Footer } from "../components/footer/Footer"
-import { ItemListContainer } from '../components/items/ItemListContainer'
-import { useDataContext } from "../context/DataProvider"
-import { CatBanner } from "../components/banner/CatBanner"
-
+import React, { useState } from "react";
+import { NavBar } from "../components/navBar/NavBar";
+import { Footer } from "../components/footer/Footer";
+import { ItemListContainer } from "../components/items/ItemListContainer";
+import { useDataContext } from "../context/DataProvider";
+import { CatBanner } from "../components/banner/CatBanner";
+import { Pagintation } from "../components/atoms/Pagination";
 
 export const Series = () => {
-  const { 
-    tvshows, 
-    genresTv, 
-    currentGenreIds,
-    setCurrentGenreIds,
-    handleSelectGenre} = useDataContext()
+    const {
+        tvshows,
+        genresTv,
+        currentGenreIds,
+        setCurrentGenreIds,
+    } = useDataContext();
 
-    const [currentGenre, setCurrentGenre] = useState() 
-    const [tvshowFiltered, setTvshowFiltered] = useState([]) 
-    //console.log(genIds)  //todos los ids
-    //console.log(tvshows)  
+    const [currentPage, setCurrentPage] = useState(1);
+    const [TvPerPage, setTvPerPage] = useState(10);
+    const totalTv = Object.keys(tvshows).length;
+    const totalPages = Math.ceil(totalTv / TvPerPage)
 
-  return (
-    <div>
-        <NavBar />
+    const slicedTvshows = tvshows.slice(
+        (currentPage - 1) * TvPerPage,
+        (currentPage - 1) * TvPerPage + TvPerPage
+    );
 
-        <div className='container-page'>
-          <CatBanner 
-            // value={currentGenre}
-            genresTv={genresTv}
-            currentGenreIds={currentGenreIds}
-            setCurrentGenreIds={setCurrentGenreIds} 
-            handleSelectGenre={handleSelectGenre}
-           />
-          <ItemListContainer 
-            data={tvshows} 
-            genresTv={genresTv}
-            currentGenreIds={currentGenreIds}
-          
-          //tvshowFiltered={tvshowFiltered}
-        />
+    return (
+        <div>
+            <NavBar />
+
+            <div className="container-page">
+                <Pagintation
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+
+                <CatBanner
+                    genresTv={genresTv}
+                    currentGenreIds={currentGenreIds}
+                    setCurrentGenreIds={setCurrentGenreIds}
+                />
+                <ItemListContainer
+                    data={slicedTvshows}
+                    genresTv={genresTv}
+                    currentGenreIds={currentGenreIds}
+
+                    //tvshowFiltered={tvshowFiltered}
+                />
+            </div>
+
+            <Footer />
         </div>
-        
-        <Footer />
-    </div>
-  )
-}
-
+    );
+};

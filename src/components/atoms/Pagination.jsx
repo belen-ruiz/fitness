@@ -1,7 +1,7 @@
 import TablePagination from '@mui/material/TablePagination';
 import { useState } from 'react';
 
-export const Pagintation = ({totalMovies, totalPages, moviesPerPage, currentPage, setCurrentPage }) => {
+export const Pagintation = ({ totalPages, currentPage, setCurrentPage }) => {
     
     const [input, setInput] = useState(1)
 
