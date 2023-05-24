@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchData, exerciseOp } from "../../hooks/fetchData";
 import { Item } from "./Item"
+import { Loader } from "../atoms/Loader"
 
 export const ItemContainer = () => {
     const [movie, setMovie] = useState([]);
@@ -10,7 +11,9 @@ export const ItemContainer = () => {
     const [similarMovies, setSimilarMovies] = useState([]);
     const [movieVideos, setMovieVideos] = useState([]);
     const [movieReviews, setMovieReviews] = useState([]);
-    
+    const [loading, setLoading] = useState(true)
+
+
     const { movie_id } = useParams([]);
 
     const API_KEY = `api_key=0c17a380a966eb856907e4b64bd5374a&language=en-US`;
@@ -39,12 +42,14 @@ export const ItemContainer = () => {
     useEffect(() => {
         setTimeout(() => {
             fetchMovie();
+            setLoading(false)
         }, 2000);
     }, [movie_id]);
 
     return (
         <>
-            {movie && (
+            {   loading && <Loader /> ||
+                movie && (
                 <div>
                     <Item
                         data={movie}
@@ -53,8 +58,8 @@ export const ItemContainer = () => {
                         similarMovies={similarMovies}
                         movieReviews={movieReviews}
                     />
-                </div>
-            )}
+                </div>)
+            }
         </>
     );
 };

@@ -14,9 +14,8 @@ export const ItemDetail = () => {
         <NavBar />
 
         <div className='container-page'>    
-
           <ItemContainer />
-            
+
         </div>
 
         <Footer />
