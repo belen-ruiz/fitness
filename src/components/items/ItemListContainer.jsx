@@ -6,7 +6,7 @@ import { useDataContext } from "../../context/DataProvider"
 //1
 //logica y mapa de la lista
 //viene de series o movies
-export const ItemListContainer = ({data, results, currentGenreIds }) => {   
+export const ItemListContainer = ({ data, results }) => {   
 
 
     //console.log(data)
