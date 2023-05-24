@@ -8,6 +8,7 @@ import { ItemDetail } from '../pages/ItemDetail'
 import { Login } from '../pages/Login'
 
 import { useDataContext } from "../context/DataProvider"
+import { Favorites } from '../pages/Favorites'
 
 
 // se importa en la app
@@ -53,6 +54,11 @@ const allRoutes = () => {
             path:"/results/:search",
             exact: true,
             element: <Results /> 
+        },
+        {
+            path:"/favorites",
+            exact: true,
+            element: <Favorites /> 
         },
         {
             path:"/login",

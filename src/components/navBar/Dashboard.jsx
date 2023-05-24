@@ -5,6 +5,9 @@ import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 import { useModal } from "../../hooks/useModal";
 import { SearchBar } from '../minicomponentes/SearchBar';
+import { HeartBrokenRounded } from '@mui/icons-material';
+import { Favorite } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const settings = ['perfil', 'cuenta', 'logout'];
 
@@ -19,12 +22,12 @@ const Search = () => {
 }
 
 
-const Notifications = () => {
+const Favorites = () => {
   return (
     <>
-        <Badge color="secondary" variant="dot">
-            <MailIcon />
-        </Badge>
+        <Link to={"/favorites"}>
+          <Favorite />
+        </Link>
     </>
   )
 }
@@ -46,7 +49,7 @@ export const Dashboard = () => {
   return (
     <div className='container-dashboard flex-center'>
         <Search />
-        <Notifications />
+        <Favorites />
         <Profile />
     </div>
   )
